@@ -18,10 +18,10 @@ import { IRouteStageBuilderFormValues } from './route-stage-builder.interface';
 
 // Components
 import { StageItemWrapper } from '../assessment-stage.shared-components';
-import FormikCheckbox from '../../_core/Formik/formik-checkbox.component';
+import FormikCheckbox from '../../_forms/Formik/formik-checkbox.component';
 import { PrimaryButton } from '../../_core/_ui/buttons.component';
-import FormikInput from '../../_core/Formik/formik-input.component';
-import FormikSelect from '../../_core/Formik/formik-select.component';
+import FormikInput from '../../_forms/Formik/formik-input.component';
+import FormikSelect from '../../_forms/Formik/formik-select.component';
 import {
   NOTIFICATION_OPTIONS, ROUTE_NOTIFICATION_OPTIONS,
   STAGE_ROUTE_BY_DESTINATIONS,

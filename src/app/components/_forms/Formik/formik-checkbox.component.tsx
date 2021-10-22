@@ -4,8 +4,8 @@ import React from 'react';
 import FormControl from '@material-ui/core/FormControl/FormControl';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { FormLabel } from '../_ui/forms.component';
-import IntlMsg from '../IntlMsg/intl-msg.component';
+import { FormLabel } from '../../_core/_ui/forms.component';
+import IntlMsg from '../../_core/IntlMsg/intl-msg.component';
 import _ from 'lodash';
 
 interface IFormikCheckboxProps {

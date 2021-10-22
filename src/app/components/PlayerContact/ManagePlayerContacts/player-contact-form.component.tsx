@@ -8,12 +8,12 @@ import Box from '@material-ui/core/Box';
 import messages from './player-contact-form.messages';
 
 // Components
-import FormikInput from '../../_core/Formik/formik-input.component';
+import FormikInput from '../../_forms/Formik/formik-input.component';
 import FormControl from '@material-ui/core/FormControl';
 import { PrimaryButton, SecondaryButton } from '../../_core/_ui/buttons.component';
 import IntlMsg from '../../_core/IntlMsg/intl-msg.component';
 import { Spacer } from '../../_core/_ui/structure.components';
-import FormikCheckbox from '../../_core/Formik/formik-checkbox.component';
+import FormikCheckbox from '../../_forms/Formik/formik-checkbox.component';
 
 export interface IPlayerContactFormFields {
   name: string;

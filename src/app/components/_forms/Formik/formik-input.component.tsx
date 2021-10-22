@@ -5,8 +5,8 @@ import React from 'react';
 import FormControl from '@material-ui/core/FormControl/FormControl';
 
 // Components
-import { FormHelperText, FormInput, FormLabel } from '../_ui/forms.component';
-import IntlMsg from '../IntlMsg/intl-msg.component';
+import { FormHelperText, FormInput, FormLabel } from '../../_core/_ui/forms.component';
+import IntlMsg from '../../_core/IntlMsg/intl-msg.component';
 
 interface FormikInputProps {
   id?: string,

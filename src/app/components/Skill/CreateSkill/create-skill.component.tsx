@@ -11,12 +11,12 @@ import { ICreateSkill } from './create-skill.interface';
 
 // Components
 import IntlMsg from '../../_core/IntlMsg/intl-msg.component';
-import FormikSelect from '../../_core/Formik/formik-select.component';
-import FormikInput from '../../_core/Formik/formik-input.component';
+import FormikSelect from '../../_forms/Formik/formik-select.component';
+import FormikInput from '../../_forms/Formik/formik-input.component';
 import { FormHelperText } from '../../_core/_ui/forms.component';
 import { PrimaryButton } from '../../_core/_ui/buttons.component';
 import { SKILL_TYPE_OPTIONS } from '../../../lib/constants';
-import FormikCheckbox from '../../_core/Formik/formik-checkbox.component';
+import FormikCheckbox from '../../_forms/Formik/formik-checkbox.component';
 
 const CreateSkill: React.FC<ICreateSkill> = ({
   form,

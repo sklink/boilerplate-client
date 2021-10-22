@@ -20,15 +20,15 @@ import messages from './create-player.messages';
 import { GENDER_OPTIONS } from '../../../lib/constants';
 
 // Components
-import FormikInput from '../../_core/Formik/formik-input.component';
+import FormikInput from '../../_forms/Formik/formik-input.component';
 import IntlMsg from '../../_core/IntlMsg/intl-msg.component';
 import { FormHelperText } from '../../_core/_ui/forms.component';
 import { OutlineButton, PrimaryButton } from '../../_core/_ui/buttons.component';
-import FormikDatePicker from '../../_core/Formik/formik-datepicker.component';
-import FormikSelect from '../../_core/Formik/formik-select.component';
+import FormikDatePicker from '../../_forms/Formik/formik-datepicker.component';
+import FormikSelect from '../../_forms/Formik/formik-select.component';
 import { SectionHeading } from '../../_core/_ui/typography.component';
 import { SectionWrapper } from '../../_core/_ui/structure.components';
-import FormikCheckbox from '../../_core/Formik/formik-checkbox.component';
+import FormikCheckbox from '../../_forms/Formik/formik-checkbox.component';
 
 const CreatePlayer: React.FC<ICreatePlayer> = ({
   form,

@@ -14,7 +14,7 @@ import messages from './login-form.messages';
 import { LoginFormProps } from './login-form.interfaces';
 
 // Components
-import FormikInput from '../../_core/Formik/formik-input.component';
+import FormikInput from '../../_forms/Formik/formik-input.component';
 import { PrimaryButton } from '../../_core/_ui/buttons.component';
 import { Spacer } from '../../_core/_ui/structure.components';
 import { FormHelperText, FormLabel } from '../../_core/_ui/forms.component';

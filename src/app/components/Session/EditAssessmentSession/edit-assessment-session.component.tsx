@@ -11,17 +11,17 @@ import messages from './edit-assessment-session.messages'
 import { GENDER_OPTIONS } from '../../../lib/constants';
 
 // Components
-import FormikInput from '../../_core/Formik/formik-input.component';
+import FormikInput from '../../_forms/Formik/formik-input.component';
 import IntlMsg from '../../_core/IntlMsg/intl-msg.component';
 import { FormHelperText } from '../../_core/_ui/forms.component';
 import { PrimaryButton } from '../../_core/_ui/buttons.component';
-import FormikSelect from '../../_core/Formik/formik-select.component';
+import FormikSelect from '../../_forms/Formik/formik-select.component';
 import { Typography } from '@material-ui/core';
-import FormikDatePicker from '../../_core/Formik/formik-datepicker.component';
-import FormikTimePicker from '../../_core/Formik/formik-timepicker.component';
+import FormikDatePicker from '../../_forms/Formik/formik-datepicker.component';
+import FormikTimePicker from '../../_forms/Formik/formik-timepicker.component';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import FormikCheckbox from '../../_core/Formik/formik-checkbox.component';
+import FormikCheckbox from '../../_forms/Formik/formik-checkbox.component';
 
 const EditAssessmentSession: React.FC<IEditAssessmentSession> = ({
   form,

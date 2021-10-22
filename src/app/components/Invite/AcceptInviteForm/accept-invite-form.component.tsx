@@ -6,7 +6,7 @@ import { Field, Form, FormikProps } from 'formik';
 import FormControl from '@material-ui/core/FormControl';
 
 // Components
-import FormikInput from '../../_core/Formik/formik-input.component';
+import FormikInput from '../../_forms/Formik/formik-input.component';
 import { PrimaryButton } from '../../_core/_ui/buttons.component';
 
 const CompanyListing = styled.div`

@@ -12,12 +12,12 @@ import messages from './edit-player.messages';
 import { GENDER_OPTIONS } from '../../../lib/constants';
 
 // Components
-import FormikInput from '../../_core/Formik/formik-input.component';
+import FormikInput from '../../_forms/Formik/formik-input.component';
 import IntlMsg from '../../_core/IntlMsg/intl-msg.component';
 import { FormHelperText } from '../../_core/_ui/forms.component';
 import { PrimaryButton } from '../../_core/_ui/buttons.component';
-import FormikDatePicker from '../../_core/Formik/formik-datepicker.component';
-import FormikSelect from '../../_core/Formik/formik-select.component';
+import FormikDatePicker from '../../_forms/Formik/formik-datepicker.component';
+import FormikSelect from '../../_forms/Formik/formik-select.component';
 import { Typography } from '@material-ui/core';
 
 const EditPlayer: React.FC<IEditPlayer> = ({

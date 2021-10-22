@@ -1,7 +1,6 @@
 import _ from 'lodash';
-
-import { USE_24_HOUR } from '../constants';
 import React from 'react';
+import { USE_24_HOUR } from '../constants';
 
 export const numToAlpha = (num: number) =>
   (num + 9).toString(36).toUpperCase();

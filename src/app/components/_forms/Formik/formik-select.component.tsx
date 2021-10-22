@@ -8,8 +8,8 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl/FormControl';
 
 // Components
-import { FormLabel } from '../_ui/forms.component';
-import IntlMsg from '../IntlMsg/intl-msg.component';
+import { FormLabel } from '../../_core/_ui/forms.component';
+import IntlMsg from '../../_core/IntlMsg/intl-msg.component';
 
 interface IFormikSelect {
   canCreate?: boolean;

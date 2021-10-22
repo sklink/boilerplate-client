@@ -11,8 +11,8 @@ import { IManagePracticePlans } from './manage-practice-plans.interface';
 
 // Components
 import IntlMsg from '../../_core/IntlMsg/intl-msg.component';
-import FormikSelect from '../../_core/Formik/formik-select.component';
-import FormikInput from '../../_core/Formik/formik-input.component';
+import FormikSelect from '../../_forms/Formik/formik-select.component';
+import FormikInput from '../../_forms/Formik/formik-input.component';
 import { FormHelperText } from '../../_core/_ui/forms.component';
 import { PrimaryButton } from '../../_core/_ui/buttons.component';
 import { Typography } from '@material-ui/core';

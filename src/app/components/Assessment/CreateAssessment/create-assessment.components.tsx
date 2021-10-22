@@ -11,7 +11,7 @@ import { ICreateAssessment } from './create-assessment.interface';
 
 // Components
 import IntlMsg from '../../_core/IntlMsg/intl-msg.component';
-import FormikInput from '../../_core/Formik/formik-input.component';
+import FormikInput from '../../_forms/Formik/formik-input.component';
 import { PrimaryButton } from '../../_core/_ui/buttons.component';
 import { FormHelperText } from '../../_core/_ui/forms.component';
 

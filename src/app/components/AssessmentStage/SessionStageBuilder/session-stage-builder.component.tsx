@@ -16,14 +16,14 @@ import { SESSION_TERM, SESSIONS_TERM } from '../../../lib/constants';
 import { mainColor } from '../../../lib/theme';
 
 // Components
-import { TextFieldComponent } from '../../_core/Formik/formik-datepicker.component';
+import { TextFieldComponent } from '../../_forms/Formik/formik-datepicker.component';
 import { StageItemPre, StageItemWrapper } from '../assessment-stage.shared-components';
 import { IFormOption } from '../../_core/_ui/forms.component';
 import { ISessionStageBuilderFormValues } from './session-stage-builder.interface';
-import FormikSelect from '../../_core/Formik/formik-select.component';
+import FormikSelect from '../../_forms/Formik/formik-select.component';
 import { PrimaryButton } from '../../_core/_ui/buttons.component';
 import { Link } from 'react-router-dom';
-import FormikCheckbox from '../../_core/Formik/formik-checkbox.component';
+import FormikCheckbox from '../../_forms/Formik/formik-checkbox.component';
 import { NOTIFICATION_OPTIONS } from '../assessment-stage.constants';
 import Tooltip from '@material-ui/core/Tooltip';
 import InfoIcon from '@material-ui/icons/Info';

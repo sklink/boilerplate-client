@@ -6,34 +6,30 @@ import DateFnsUtils from '@date-io/date-fns';
 // Material UI
 import Box from '@material-ui/core/Box';
 import FormControl from '@material-ui/core/FormControl/FormControl';
-import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
+import { KeyboardTimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
 
 // Components
-import { FormHelperText, FormInput, FormLabel } from '../_ui/forms.component';
-import IntlMsg from '../IntlMsg/intl-msg.component';
+import { FormHelperText, FormInput, FormLabel } from '../../_core/_ui/forms.component';
+import IntlMsg from '../../_core/IntlMsg/intl-msg.component';
+import { timeToNum } from '../../../lib/helpers/conversion.helpers';
 import styled from 'styled-components';
 
-interface IFormikDatePicker {
+interface IFormikTimePicker {
   id?: string,
   fid?: string,
   field: any,
   htmlFor?: string,
   label?: any,
   form: any,
-  uncontrolled?: boolean;
-  placeholder?: string;
-  dateFormat: string;
 }
 
-const FormikDatePicker: React.FC<IFormikDatePicker> = ({
+const FormikTimePicker: React.FC<IFormikTimePicker> = ({
   field,
   fid,
   id,
   label,
   form,
-  placeholder,
-  dateFormat,
   ...rest
 }) => {
   const _id = id || fid;
@@ -51,14 +47,17 @@ const FormikDatePicker: React.FC<IFormikDatePicker> = ({
     <FormControl margin="dense" fullWidth component="div" error={!!error && touched}>
       {labelOutput}
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <KeyboardDatePicker
+        <KeyboardTimePicker
           id={_id}
           autoOk
+          minutesStep={5}
           margin="normal"
-          format="yyyy/MM/dd"
-          value={dayjs(field.value, dateFormat).format('YYYY/MM/DD')}
+          mask="__:__ _M"
+          value={dayjs().startOf('day').add(field.value, 'minute').toDate()}
           onChange={(value: MaterialUiPickersDate) => {
-            form.setFieldValue(field.name, value ? dayjs(value).format(dateFormat) : '');
+            if (value) {
+              form.setFieldValue(field.name, timeToNum(dayjs(value).format('h:mm A')));
+            }
           }}
           TextFieldComponent={TextFieldComponent}
         />
@@ -68,10 +67,9 @@ const FormikDatePicker: React.FC<IFormikDatePicker> = ({
   );
 }
 
-
 const AdornmentWrapper = styled.div`
   margin-right: 4px;
-  padding: 3px 0;
+  padding: 3px 0px;
 
   & > .MuiInputAdornment-root {
     height: auto;
@@ -82,7 +80,7 @@ const AdornmentWrapper = styled.div`
    }
 `;
 
-export const TextFieldComponent = (props: any) => {
+const TextFieldComponent = (props: any) => {
   return (
     <Box>
       <Box display="flex" justifyContent="center">
@@ -96,4 +94,4 @@ export const TextFieldComponent = (props: any) => {
   );
 };
 
-export default FormikDatePicker;
+export default FormikTimePicker;

@@ -15,12 +15,12 @@ import messages from './register-company-form.messages';
 import { APP_TITLE, COMPANY_TERM } from '../../../../_configuration';
 
 // Components
-import FormikInput from '../../_core/Formik/formik-input.component';
+import FormikInput from '../../_forms/Formik/formik-input.component';
 import { FormHelperText, FormLabel } from '../../_core/_ui/forms.component';
 import { PrimaryButton } from '../../_core/_ui/buttons.component';
 import IntlMsg from '../../_core/IntlMsg/intl-msg.component';
 import { SectionHeading } from '../../_core/_ui/typography.component';
-import FormikSelect from '../../_core/Formik/formik-select.component';
+import FormikSelect from '../../_forms/Formik/formik-select.component';
 import { TIMEZONE_NAME_OPTIONS } from '../../../lib/timezone.constants';
 
 const CompanyListing = styled.div`

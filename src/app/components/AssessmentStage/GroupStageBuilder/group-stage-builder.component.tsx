@@ -21,11 +21,11 @@ import { STAGE_ORDER_BY_OPTIONS } from '../assessment-stage.constants';
 // Components
 import { StageItemPre, StageItemWrapper } from '../assessment-stage.shared-components';
 import { IFormOption } from '../../_core/_ui/forms.component';
-import FormikSelect from '../../_core/Formik/formik-select.component';
+import FormikSelect from '../../_forms/Formik/formik-select.component';
 import { IGroupStageBuilderFormValues } from './group-stage-builder.interface';
 import { mainColor } from '../../../lib/theme';
-import FormikCheckbox from '../../_core/Formik/formik-checkbox.component';
-import FormikInput from '../../_core/Formik/formik-input.component';
+import FormikCheckbox from '../../_forms/Formik/formik-checkbox.component';
+import FormikInput from '../../_forms/Formik/formik-input.component';
 import { PrimaryButton } from '../../_core/_ui/buttons.component';
 
 interface IGroupStageBuilder {

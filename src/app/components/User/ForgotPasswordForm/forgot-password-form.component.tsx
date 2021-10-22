@@ -13,7 +13,7 @@ import { ForgotPasswordFormProps } from './forgot-password-form.interface';
 import { PrimaryButton } from '../../_core/_ui/buttons.component';
 import IntlMsg from '../../_core/IntlMsg/intl-msg.component';
 import { Text } from '../../_core/_ui/typography.component';
-import FormikInput from '../../_core/Formik/formik-input.component';
+import FormikInput from '../../_forms/Formik/formik-input.component';
 import { FormHelperText } from '../../_core/_ui/forms.component';
 
 

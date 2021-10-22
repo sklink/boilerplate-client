@@ -16,11 +16,11 @@ import { ICreateDrill, ISkillSetFields } from './create-drill.interface';
 
 // Components
 import IntlMsg from '../../_core/IntlMsg/intl-msg.component';
-import FormikSelect from '../../_core/Formik/formik-select.component';
-import FormikInput from '../../_core/Formik/formik-input.component';
+import FormikSelect from '../../_forms/Formik/formik-select.component';
+import FormikInput from '../../_forms/Formik/formik-input.component';
 import { FormHelperText } from '../../_core/_ui/forms.component';
 import { OutlineButton, PrimaryButton } from '../../_core/_ui/buttons.component';
-import FormikCheckbox from '../../_core/Formik/formik-checkbox.component';
+import FormikCheckbox from '../../_forms/Formik/formik-checkbox.component';
 import { SectionWrapper } from '../../_core/_ui/structure.components';
 import { Bold, SectionHeading } from '../../_core/_ui/typography.component';
 import ListItem from '@material-ui/core/ListItem';
