@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "maxanalytics-40f24"
+  },
+  "targets": {
+    "maxanalytics-40f24": {
+      "hosting": {
+        "dashboard": [
+          "maxanalytics-dashboard"
+        ]
+      }
+    }
+  }
+}
