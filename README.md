@@ -4,12 +4,7 @@ This boilerplate is a starting point for the client-side portion of web and mobi
 
 ## Features
 
-### 
- - Login
- - 
-
-The following features can be 
-- 
+-  [Authentication and User Management](./docs/_boilerplate/UserSystem.md)
 
 ## Starting a new project
 
@@ -36,5 +31,9 @@ the existing file hasn't diverged from the boilerplate. Checking the file's git 
 git log -p path/to/filename.js
 ```
 
-*While manual copying isn't ideal, it is the safest method of ensuring that future updates don't negatively affect
-applications already in production. It also means that core files can be changed *
+*While manual copying isn't ideal, there are a number of benefits:*
+ 
+ - *forces manual review and approval of updates going into production applications;*
+ - *core files can be changed without concern about maintaining compatibility with the boilerplate; and,*
+ - *boilerplate changes can be planned and refined before being added to the main repo without blocking an
+ existing project's needs.*  
