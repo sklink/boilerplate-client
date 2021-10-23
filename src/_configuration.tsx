@@ -1,5 +1,6 @@
-export const APP_TITLE = 'Max Analytics';
-export const SUPPORT_EMAIL = 'support@maxanalytics.ca';
+export const APP_TITLE = 'Summit Boilerplate';
+export const buildPageTitle = (title: string) => `${APP_TITLE} - ${title}`;
+export const SUPPORT_EMAIL = 'contact@mattdoak.ca';
 
 export const ENABLE_DEKSTOP = true;
 export const ENABLE_MOBILE = true;
@@ -16,32 +17,38 @@ export const HAS_USER_MODES = false;
 export const DEFAULT_USER_MODE = 'USER';
 
 export const HAS_COMPANIES = true;
-export const COMPANY_TERM = 'association';
+export const COMPANY_TERM = 'company';
+export const COMPANIES_TERM = 'companies';
 
 export const HAS_PROJECTS = true;
-export const PROJECT_TERM = 'assessment';
+export const PROJECT_TERM = 'project';
+export const PROJECTS_TERM = 'projects';
 
-export const ROLES = {
-  CHECK_IN: 'CHECK_IN',
-  SCORING: 'SCORING',
-  REPORTS: 'REPORTS',
-  CONFIGURATION: 'CONFIGURATION',
-  USER_MANAGEMENT: 'USER_MANAGEMENT'
+export const ROLES: { [key: string]: string } = {
+  // Add application roles here:
+  // (e.g. ROLE: 'Role Label')
 };
 
-export const ROLE_LABELS: { [key: string]: string } = {
-  CHECK_IN: 'Check-In',
-  SCORING: 'Scoring',
-  REPORTS: 'Reports',
-  CONFIGURATION: 'Configuration',
-  USER_MANAGEMENT: 'User Management'
+export const ROUTE_PATHS = {
+  // Add application routes here
+
+  // Boilerplate routes, change as necessary to move endpoints
+  HOME: '/',
+  LOGIN: '/login',
+  SETTINGS: '/settings',
+  MANAGE_USERS: '/users',
+  ACCEPT_INVITE: '/join',
+  REGISTER: '/register'
 };
 
-export const ROUTE_ROLES = {
+// Boilerplate
+// ====
+if (HAS_USERS) {
+  ROLES.USER_MANAGEMENT = 'User Management';
+}
+
+export const ROUTE_ROLES: { [key: string]: string } = {
   PUBLIC: 'PUBLIC',
   AUTHORIZED: 'AUTHORIZED',
   ...ROLES
 };
-
-export const HOME_ROUTE = '/';
-export const LOGIN_ROUTE = '/login';

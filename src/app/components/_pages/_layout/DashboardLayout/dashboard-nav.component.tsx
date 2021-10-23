@@ -26,11 +26,11 @@ import { Fab } from '@material-ui/core';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { mainColor } from '../../../../lib/theme';
 import { useHistory } from 'react-router-dom';
-import { buildSignOut, getAuthUser } from '../../../../lib/services/auth.service';
-import CompanySelectorGraphQL from '../../../Company/CompanySelector/company-selector.graphql';
-import { pluralTerm } from '../../../../lib/helpers/term.helper';
+import { buildSignOut, getAuthUser } from '../../../../domains/_auth/auth.service';
+import CompanySelectorGraphQL from '../../../../domains/company/components/_CompanySelector/company-selector.graphql';
+import { pluralTerm } from '../../../../lib/helpers/content.helper';
 import { makeVar, useReactiveVar } from '@apollo/client';
-import { hasAnyRoles } from '../../../../lib/services/user.service';
+import { hasAnyRoles } from '../../../../domains/user/user.service';
 import { isContextCollapsedVar } from './dashboard-sidebar.component';
 
 const Logo = styled.img`

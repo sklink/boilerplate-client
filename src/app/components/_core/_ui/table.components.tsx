@@ -36,7 +36,7 @@ import InfoIcon from '@material-ui/icons/Info';
 import { lighten } from '@material-ui/core/styles';
 
 import { mainLightColor, sectionDarkerColor } from '../../../lib/theme';
-import { getAuthUser } from '../../../lib/services/auth.service';
+import { getAuthUser } from '../../../domains/_auth/auth.service';
 
 const useRowStyles = makeStyles({
   root: {

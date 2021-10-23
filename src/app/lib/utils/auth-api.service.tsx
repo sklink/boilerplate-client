@@ -2,7 +2,7 @@ import _ from 'lodash';
 import * as Sentry from '@sentry/react';
 
 import RestService from './api.service';
-import { LoginFormFields } from '../../components/User/LoginForm/login-form.interfaces';
+import { LoginFormFields } from '../../domains/_auth/components/LoginForm/login-form.interfaces';
 import { ENABLE_SENTRY, SUPPORT_EMAIL } from '../../../_configuration';
 
 interface TokenAuth {

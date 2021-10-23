@@ -1,86 +1,57 @@
 import React from 'react';
 
-import { APP_TITLE, ROUTE_ROLES } from './_configuration';
-import { SESSION_TERM, SESSIONS_TERM } from './app/lib/constants';
+import { APP_TITLE, buildPageTitle, HAS_USERS, OPEN_REGISTRATION, ROUTE_PATHS, ROUTE_ROLES } from './_configuration';
 
 // Components
 import RouteByRole from './app/components/_core/RouteByRole/route-by-role.component';
-import ManageDrillsPage from './app/components/_pages/ManageDrillsPage/manage-drills.page';
-import ManagePlayersPage from './app/components/_pages/ManagePlayersPage/manage-players.page';
-import ManageSessionPage from './app/components/_pages/ManageSessionsPage/manage-sessions.page';
-import CreateAssessmentPage from './app/components/_pages/CreateAssessmentPage/create-assessment.page';
-import UpcomingAssessmentSessionsPage
-  from './app/components/_pages/UpcomingAssessmentSessions/upcoming-assessment-sessions.page';
-import ManageSkillsPage from './app/components/_pages/ManageSkillsPage/manage-skills.page';
-import ManagePracticePlanPage from './app/components/_pages/ManagePracticePlansPage/manage-practice-plan.page';
-import EditPlayerPage from './app/components/_pages/EditPlayerPage/edit-player.page';
-import EditAssessmentSessionPage from './app/components/_pages/EditAssessmentSessionPage/edit-assessment-session.page';
-import ConfigureSchedulePage from './app/components/_pages/ConfigureSchedulePage/configure-schedule.page';
-import RequestEmailsPage from './app/components/_pages/RequestEmailsPage/request-emails.page';
-import ManagePlayerContactsPage from './app/components/_pages/ManagePlayerContactsPage/manage-player-contacts.page';
-import ManageWeightingPage from './app/components/_pages/ManageWeightingPage/manage-weighting.page';
-import ManageAgeGroupPage from './app/components/_pages/ManageAgeGroup/manage-age-group.page';
-import CheckInPage from './app/components/_pages/CheckInPage/check-in.page';
-import EvaluatePage from './app/components/_pages/EvaluatePage/evaluate.page';
-import EditDrillPage from './app/components/_pages/EditDrillPage/edit-drill.page';
-import ReportsPage from './app/components/_pages/ReportsPage/reports.page';
-import ReportCardPage from './app/components/_pages/ReportCardPage/report-card.page';
+import ManageUsersPage from './app/domains/user/pages/ManageUsersPage/manage-users.page';
+import LoginPage from './app/domains/_auth/pages/LoginPage/login.page';
+import ForgotPasswordPage from './app/domains/_auth/pages/ForgotPasswordPage/forgot-password.page';
+import ResetPasswordPage from './app/domains/_auth/pages/ResetPasswordPage/reset-password.page';
+import SettingsPage from './app/domains/_auth/pages/SettingsPage/settings.page';
+import AcceptInvitePage from './app/domains/_auth/pages/AcceptInvitePage/accept-invite.page';
+import RegisterPageContainer from './app/domains/_auth/pages/RegisterPage/register.page';
+import VerifyAccountPage from './app/domains/_auth/pages/VerifyAccountPage/verify-account.page';
+import { Route, Switch } from 'react-router-dom';
+import NotFoundPage from './app/components/_pages/_general/NotFoundPage/not-found-page.component';
+import DashboardPage from './app/components/_pages/DashboardPage/dashboard.page';
 
-export const ROUTES = [
-  <RouteByRole key="upcoming" exact title={`${APP_TITLE} - Upcoming Evaluations`} path="/upcoming" componentsByRole={{
-    [ROUTE_ROLES.CHECK_IN]: UpcomingAssessmentSessionsPage,
-    [ROUTE_ROLES.SCORING]: UpcomingAssessmentSessionsPage
+// App Specific Routes
+// ====
+const ROUTES = [
+  <RouteByRole exact title={APP_TITLE} path={ROUTE_PATHS.HOME} componentsByRole={{
+    [ROUTE_ROLES.AUTHORIZED]: DashboardPage,
   }} />,
-  <RouteByRole key="drills" exact title={`${APP_TITLE} - Manage Drills`} path="/drills" componentsByRole={{
-    [ROUTE_ROLES.CONFIGURATION]: ManageDrillsPage
-  }} />,
-  <RouteByRole key="drills" exact title={`${APP_TITLE} - Manage Drills`} path="/drills/:drillId" componentsByRole={{
-    [ROUTE_ROLES.CONFIGURATION]: EditDrillPage
-  }} />,
-  <RouteByRole key="skills" exact title={`${APP_TITLE} - Manage Drills`} path="/skills" componentsByRole={{
-    [ROUTE_ROLES.CONFIGURATION]: ManageSkillsPage
-  }} />,
-  <RouteByRole key="practice-plan" exact title={`${APP_TITLE} - Manage Drills`} path="/practice-plans" componentsByRole={{
-    [ROUTE_ROLES.CONFIGURATION]: ManagePracticePlanPage
-  }} />,
-  <RouteByRole key="players" exact title={`${APP_TITLE} - Manage Players`} path="/players" componentsByRole={{
-    [ROUTE_ROLES.CONFIGURATION]: ManagePlayersPage,
-    [ROUTE_ROLES.REPORTS]: ManagePlayersPage
-  }} />,
-  <RouteByRole key="edit-player" exact title={`${APP_TITLE} - Edit Player`} path="/players/:playerId/:playerAssessmentId" componentsByRole={{
-    [ROUTE_ROLES.CONFIGURATION]: EditPlayerPage,
-    [ROUTE_ROLES.REPORTS]: EditPlayerPage
-  }} />,
-  <RouteByRole key="sessions" exact title={`${APP_TITLE} - Manage ${SESSIONS_TERM}`} path="/sessions" componentsByRole={{
-    [ROUTE_ROLES.CONFIGURATION]: ManageSessionPage
-  }} />,
-  <RouteByRole key="edit-sessions" exact title={`${APP_TITLE} - Edit ${SESSION_TERM}`} path="/sessions/:assessmentSessionId" componentsByRole={{
-    [ROUTE_ROLES.CONFIGURATION]: EditAssessmentSessionPage
-  }} />,
-  <RouteByRole key="create-assessment" exact title={`${APP_TITLE} - Create Assessment`} path="/assessments/create" componentsByRole={{
-    [ROUTE_ROLES.AUTHORIZED]: CreateAssessmentPage
-  }} />,
-  <RouteByRole key="configure-schedule" exact title={`${APP_TITLE} - Configure Schedule Format`} path="/format" componentsByRole={{
-    [ROUTE_ROLES.CONFIGURATION]: ConfigureSchedulePage
-  }} />,
-  <RouteByRole key="manage-age-group" exact title={`${APP_TITLE} - Manage Age Group`} path="/age-group/:ageGroupId" componentsByRole={{
-    [ROUTE_ROLES.CONFIGURATION]: ManageAgeGroupPage
-  }} />,
-  <RouteByRole key="configure-weighting" exact title={`${APP_TITLE} - Configure Weightings`} path="/weighting" componentsByRole={{
-    [ROUTE_ROLES.CONFIGURATION]: ManageWeightingPage
-  }} />,
-  <RouteByRole key="request-email" exact title={`${APP_TITLE} - Request Emails`} path="/request-emails" component={RequestEmailsPage} />,
-  <RouteByRole key="request-email" exact title={`${APP_TITLE} - Request Emails`} path="/request-email" component={RequestEmailsPage} />,
-  <RouteByRole key="manage-contacts" exact title={`${APP_TITLE} - Manage Contacts`} path="/player/:code/contacts" component={ManagePlayerContactsPage} />,
-  <RouteByRole key="manage-contacts" exact title={`${APP_TITLE} - Manage Contacts`} path="/players/:code" component={ManagePlayerContactsPage} />,
-  <RouteByRole key="check-in" exact title={`${APP_TITLE} - Check-In`} path="/check-in/:assessmentSessionId" componentsByRole={{
-    [ROUTE_ROLES.CHECK_IN]: CheckInPage
-  }}  />,
-  <RouteByRole key="evaluate" exact title={`${APP_TITLE} - Evaluate`} path="/evaluate/:assessmentSessionId" componentsByRole={{
-    [ROUTE_ROLES.SCORING]: EvaluatePage
-  }}  />,
-  <RouteByRole key="reports" exact title={`${APP_TITLE} - Reports`} path="/reports/:ageGroupId" componentsByRole={{
-    [ROUTE_ROLES.REPORTS]: ReportsPage
-  }}  />,
-  <RouteByRole key="reports" exact title={`${APP_TITLE} - Report Card`} path="/report-card/:code/:playerAssessmentId" component={ReportCardPage} />,
 ];
+
+
+// Boilerplate Routes
+// ====
+ROUTES.push(<RouteByRole title={buildPageTitle('Settings')} exact path={ROUTE_PATHS.SETTINGS} chat componentsByRole={{
+  [ROUTE_ROLES.AUTHORIZED]: SettingsPage
+}} />);
+
+if (HAS_USERS) {
+  ROUTES.push(<RouteByRole key="verify" title={buildPageTitle('Verify Account')} chat exact path="/verify" component={VerifyAccountPage} />);
+  ROUTES.push(<RouteByRole exact title={buildPageTitle('Reset Password')} path="/password-reset" component={ResetPasswordPage} />);
+  ROUTES.push(<RouteByRole title={buildPageTitle('Forgot Password')} exact path="/forgot-password" componentsByRole={{
+    [ROUTE_ROLES.PUBLIC]: ForgotPasswordPage
+  }} />);
+
+  ROUTES.push(<RouteByRole exact title={buildPageTitle('Sign In')} path={ROUTE_PATHS.LOGIN} componentsByRole={{
+    [ROUTE_ROLES.PUBLIC]: LoginPage
+  }} />);
+
+  ROUTES.push(<RouteByRole exact title={buildPageTitle('Manage Users')} path={ROUTE_PATHS.MANAGE_USERS} componentsByRole={{
+    [ROUTE_ROLES.USER_MANAGEMENT]: ManageUsersPage
+  }} />);
+
+  if (OPEN_REGISTRATION) {
+    ROUTES.push(<RouteByRole exact title={buildPageTitle('Join')} path={ROUTE_PATHS.ACCEPT_INVITE} component={AcceptInvitePage} />);
+    ROUTES.push(<RouteByRole exact title={buildPageTitle('Register')} path={ROUTE_PATHS.REGISTER} component={RegisterPageContainer} />);
+  }
+}
+
+ROUTES.push(<Route title={buildPageTitle('Page Not Found')} component={NotFoundPage} />);
+
+export default { ROUTES };

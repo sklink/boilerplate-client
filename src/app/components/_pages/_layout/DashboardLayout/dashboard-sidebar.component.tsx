@@ -14,7 +14,7 @@ import { mainColor } from '../../../../lib/theme';
 import { isNavCollapsedVar } from './dashboard-nav.component';
 
 // Components
-import AssessmentSelectorGraphQL from '../../../Assessment/AssessmentSelector/assessment-selector.graphql';
+import AssessmentSelectorGraphQL from '../../../../domains/project/components/_ProjectSelector/assessment-selector.graphql';
 import GlobalAgeGroupFilterGraphQL from '../../../AgeGroup/GlobalAgeGroupFilter/global-age-group-filter.graphql';
 import ArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import ArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';

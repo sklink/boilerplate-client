@@ -10,7 +10,7 @@ import QueueLink from 'apollo-link-queue';
 import { persistCache } from 'apollo3-cache-persist';
 
 import { GRAPHQL_HTTP_URI } from './constants';
-import { authUser } from './services/auth.service';
+import { authUser } from '../domains/_auth/auth.service';
 import AuthApiService from './utils/auth-api.service';
 import trackerLink from './utils/tracker.link';
 

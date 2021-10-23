@@ -4,7 +4,7 @@ import { makeVar, useApolloClient, useReactiveVar } from '@apollo/client';
 import { removeTrackedQuery, trackedQueries } from '../../../lib/utils/tracker.link';
 import { UPDATE_HANDLERS } from '../../../lib/services/update-handler.service';
 
-import LoadingPage from '../../_pages/_boilerplate/LoadingPage/loading-page.container';
+import LoadingPage from '../../_pages/_general/LoadingPage/loading-page.container';
 import { getQueueOpen, isSyncing } from '../PersistGateContainer/persist-gate.container';
 
 interface IOfflineHydrator {

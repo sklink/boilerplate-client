@@ -9,7 +9,6 @@ const DashboardPage = () => {
   return (
     <DashboardLayout>
       <SectionHeading>Dashboard</SectionHeading>
-      <ManageAgeGroupsGraphQL />
     </DashboardLayout>
   );
 };

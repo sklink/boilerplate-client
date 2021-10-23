@@ -4,14 +4,14 @@ import { Redirect, Route } from 'react-router-dom';
 import * as Sentry from '@sentry/react';
 
 // Data
-import { getAuthUser } from '../../../lib/services/auth.service';
-import { APP_TITLE, HOME_ROUTE, LOGIN_ROUTE, ROUTE_ROLES } from '../../../../_configuration';
+import { getAuthUser } from '../../../domains/_auth/auth.service';
+import { APP_TITLE, ROUTE_PATHS, ROUTE_ROLES } from '../../../../_configuration';
 
 // Components
-import ErrorPage from '../../_pages/_boilerplate/ErrorPage/error-page.container';
-import NoCompanyPage from '../../_pages/_boilerplate/NoCompanyPage/no-company-page.component';
-import { getCurrMember } from '../../../lib/services/member.service';
-import LoadingPage from '../../_pages/_boilerplate/LoadingPage/loading-page.container';
+import ErrorPage from '../../_pages/_general/ErrorPage/error-page.container';
+import NoCompanyPage from '../../_pages/_general/NoCompanyPage/no-company-page.component';
+import { getCurrMember } from '../../../domains/member/member.service';
+import LoadingPage from '../../_pages/_general/LoadingPage/loading-page.container';
 
 interface RouteByRoleProps {
   componentsByRole?: any;
@@ -51,12 +51,12 @@ const RoleByRoute: React.FC<RouteByRoleProps> = ({ chat, componentsByRole, compo
   Component = Component || component;
 
   if (!Component && user)
-    return <Route render={() => <Redirect to={HOME_ROUTE} />} />;
+    return <Route render={() => <Redirect to={ROUTE_PATHS.HOME} />} />;
 
   Component = Component || componentsByRole[ROUTE_ROLES.PUBLIC];
 
   if (!Component)
-    return <Route render={() => <Redirect to={LOGIN_ROUTE} />} />;
+    return <Route render={() => <Redirect to={ROUTE_PATHS.LOGIN} />} />;
 
   document.title = title || APP_TITLE;
 

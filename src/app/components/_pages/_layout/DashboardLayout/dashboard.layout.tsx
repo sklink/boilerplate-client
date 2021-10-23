@@ -13,7 +13,7 @@ import AddIcon from '@material-ui/icons/AddCircle';
 // Components
 import DashboardSidebar, { isContextCollapsedVar } from './dashboard-sidebar.component';
 import DashboardNav, { isNavCollapsedVar } from './dashboard-nav.component';
-import AssessmentSelectorGraphQL from '../../../Assessment/AssessmentSelector/assessment-selector.graphql';
+import AssessmentSelectorGraphQL from '../../../../domains/project/components/_ProjectSelector/assessment-selector.graphql';
 import { mainColor } from '../../../../lib/theme';
 import { SectionWrapper } from '../../../_core/_ui/structure.components';
 import OnlineStatus from '../../../_core/OnlineStatus/online-status.component';

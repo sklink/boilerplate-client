@@ -7,8 +7,8 @@ import { ApolloClient } from '@apollo/client';
 
 import createApolloClient from '../../../lib/createApolloClient';
 import AuthApiService from '../../../lib/utils/auth-api.service';
-import ErrorPage from '../../_pages/_boilerplate/ErrorPage/error-page.container';
-import LoadingPage from '../../_pages/_boilerplate/LoadingPage/loading-page.container';
+import ErrorPage from '../../_pages/_general/ErrorPage/error-page.container';
+import LoadingPage from '../../_pages/_general/LoadingPage/loading-page.container';
 
 interface PersistedApolloState {
   bootstrapped: boolean;
