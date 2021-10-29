@@ -1,18 +1,17 @@
 import _ from 'lodash';
 import React from 'react';
 import dayjs from 'dayjs';
-import DateFnsUtils from '@date-io/date-fns';
+import { styled } from '@mui/material/styles';
 
 // Material UI
-import Box from '@material-ui/core/Box';
-import FormControl from '@material-ui/core/FormControl/FormControl';
-import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
-import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
+import Box from '@mui/material/Box';
+import FormControl from '@mui/material/FormControl/FormControl';
+import DatePicker from '@mui/lab/DatePicker';
 
 // Components
 import { FormHelperText, FormInput, FormLabel } from '../../_core/_ui/forms.component';
 import IntlMsg from '../../_core/IntlMsg/intl-msg.component';
-import styled from 'styled-components';
+import { RequiredStar } from './formik-input.component';
 
 interface IFormikDatePicker {
   id?: string,
@@ -24,9 +23,11 @@ interface IFormikDatePicker {
   uncontrolled?: boolean;
   placeholder?: string;
   dateFormat: string;
+  required?: boolean;
 }
 
 const FormikDatePicker: React.FC<IFormikDatePicker> = ({
+  required,
   field,
   fid,
   id,
@@ -42,35 +43,30 @@ const FormikDatePicker: React.FC<IFormikDatePicker> = ({
 
   let labelOutput = label;
   if (label && label.id) {
-    labelOutput = <FormLabel htmlFor={_id}><IntlMsg {...label} /></FormLabel>;
+    labelOutput = <FormLabel htmlFor={_id}><IntlMsg {...label} />{required && <RequiredStar>*</RequiredStar>}</FormLabel>;
   } else if (label && _.isString(label)) {
-    labelOutput = <FormLabel htmlFor={_id}>{label}</FormLabel>;
+    labelOutput = <FormLabel htmlFor={_id}>{label}{required && <RequiredStar>*</RequiredStar>}</FormLabel>;
   }
 
   return (
-    <FormControl margin="dense" fullWidth component="div" error={!!error && touched}>
+    <FormControl margin="normal" fullWidth component="div" error={!!error && touched}>
       {labelOutput}
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <KeyboardDatePicker
-          id={_id}
-          autoOk
-          margin="normal"
-          format="yyyy/MM/dd"
-          value={dayjs(field.value, dateFormat).format('YYYY/MM/DD')}
-          onChange={(value: MaterialUiPickersDate) => {
-            form.setFieldValue(field.name, value ? dayjs(value).format(dateFormat) : '');
-          }}
-          TextFieldComponent={TextFieldComponent}
-        />
-      </MuiPickersUtilsProvider>
+      <DatePicker
+        inputFormat="yyyy/MM/dd"
+        value={dayjs(field.value, dateFormat).format('YYYY/MM/DD')}
+        onChange={(date: any) => {
+          form.setFieldValue(field.name, date ? dayjs(date).format(dateFormat) : '');
+        }}
+        renderInput={(props) => <TextFieldComponent {...props} />}
+      />
       {touched && _.isString(error) && <FormHelperText>{error}</FormHelperText>}
     </FormControl>
   );
 }
 
 
-const AdornmentWrapper = styled.div`
-  margin-right: 4px;
+const AdornmentWrapper = styled('div')`
+  margin-right: 16px;
   padding: 3px 0;
 
   & > .MuiInputAdornment-root {

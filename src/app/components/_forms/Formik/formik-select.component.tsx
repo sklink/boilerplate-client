@@ -4,8 +4,8 @@ import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 
 // Material UI
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl/FormControl';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl/FormControl';
 
 // Components
 import { FormLabel } from '../../_core/_ui/forms.component';

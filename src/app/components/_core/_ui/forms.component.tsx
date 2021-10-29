@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { withStyles } from '@material-ui/core/styles';
-import { FormHelperText as MuiFormHelperText } from '@material-ui/core';
+import withStyles from '@mui/styles/withStyles';
+import { FormHelperText as MuiFormHelperText } from '@mui/material';
 import { dangerColor, successColor } from '../../../lib/theme';
 
 export interface IFormOption {

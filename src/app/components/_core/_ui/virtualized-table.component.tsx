@@ -10,9 +10,8 @@ import {
   TableProps
 } from 'react-virtualized';
 
-// Material UI
-import { withStyles } from '@material-ui/core/styles';
-import TableCell from '@material-ui/core/TableCell';
+import withStyles from '@mui/styles/withStyles';
+import TableCell from '@mui/material/TableCell';
 import { warnColor } from '../../../lib/theme';
 
 const styles: any = (theme: any) => ({

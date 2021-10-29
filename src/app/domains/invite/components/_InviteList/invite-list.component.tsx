@@ -4,15 +4,15 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
 // Material UI
-import Box from '@material-ui/core/Box';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import IconButton from '@material-ui/core/IconButton';
-import SendIcon from '@material-ui/icons/Send';
-import DeleteIcon from '@material-ui/icons/Delete';
-import Paper from '@material-ui/core/Paper';
+import Box from '@mui/material/Box';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemSecondaryAction from '@mui/material/ListItemSecondaryAction';
+import IconButton from '@mui/material/IconButton';
+import SendIcon from '@mui/icons-material/Send';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Paper from '@mui/material/Paper';
 import { FormHelperText } from '../../../../components/_core/_ui/forms.component';
 
 dayjs.extend(relativeTime);
@@ -46,11 +46,11 @@ const InviteList: React.FC<InviteListProps> = ({
                 </Box>
               )}
               <Box mr={1}>
-                <IconButton aria-label="delete" onClick={() => resendInvite(invite._id)}>
+                <IconButton aria-label="delete" onClick={() => resendInvite(invite._id)} size="large">
                   <SendIcon/>
                 </IconButton>
               </Box>
-              <IconButton aria-label="delete" onClick={() => cancelInvite(invite._id)}>
+              <IconButton aria-label="delete" onClick={() => cancelInvite(invite._id)} size="large">
                 <DeleteIcon />
               </IconButton>
             </Box>

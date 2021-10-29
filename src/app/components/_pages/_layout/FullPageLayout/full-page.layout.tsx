@@ -2,9 +2,9 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 // Material UI
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import Paper from '@material-ui/core/Paper';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
 
 // Data
 import { backgroundColor } from '../../../../lib/theme';

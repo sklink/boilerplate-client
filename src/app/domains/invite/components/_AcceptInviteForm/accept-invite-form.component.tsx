@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Field, Form, FormikProps } from 'formik';
 
 // Material UI
-import FormControl from '@material-ui/core/FormControl';
+import FormControl from '@mui/material/FormControl';
 
 // Components
 import FormikInput from '../../../../components/_forms/Formik/formik-input.component';

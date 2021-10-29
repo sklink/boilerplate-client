@@ -2,17 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 
 // Material UI
-import Box from '@material-ui/core/Box';
-import SignOutIcon from '@material-ui/icons/ExitToApp';
-import PlayersIcon from '@material-ui/icons/Group';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import DrillsIcon from '@material-ui/icons/Assignment';
-import SessionsIcon from '@material-ui/icons/DateRange';
-import UpcomingIcon from '@material-ui/icons/Check';
-import ArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
-import ArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
-import GearIcon from '@material-ui/icons/Settings';
-import EqualizerIcon from '@material-ui/icons/Equalizer';
+import Box from '@mui/material/Box';
+import SignOutIcon from '@mui/icons-material/ExitToApp';
+import PlayersIcon from '@mui/icons-material/Group';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import DrillsIcon from '@mui/icons-material/Assignment';
+import SessionsIcon from '@mui/icons-material/DateRange';
+import UpcomingIcon from '@mui/icons-material/Check';
+import ArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import ArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import GearIcon from '@mui/icons-material/Settings';
+import EqualizerIcon from '@mui/icons-material/Equalizer';
 
 // Data
 import { SESSION_TERM } from '../../../../lib/constants';
@@ -22,8 +22,8 @@ import logoIcon from '../../../../assets/logo-icon.png'
 // Components
 import { CollapsibleNavItem } from '../../../_core/_ui/nav.components';
 import { Spacer } from '../../../_core/_ui/structure.components';
-import { Fab } from '@material-ui/core';
-import withStyles from '@material-ui/core/styles/withStyles';
+import { Fab } from '@mui/material';
+import withStyles from '@mui/styles/withStyles';
 import { mainColor } from '../../../../lib/theme';
 import { useHistory } from 'react-router-dom';
 import { buildSignOut, getAuthUser } from '../../../../domains/_auth/auth.service';

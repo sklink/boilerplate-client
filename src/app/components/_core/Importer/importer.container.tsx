@@ -4,10 +4,10 @@ import Papa, { ParseError } from 'papaparse';
 import moment from 'moment';
 
 // Material UI
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import CloseIcon from '@material-ui/icons/Close';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import CloseIcon from '@mui/icons-material/Close';
 
 // Data
 import { STEPS } from './importer.constants';

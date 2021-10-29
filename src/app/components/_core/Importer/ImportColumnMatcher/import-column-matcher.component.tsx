@@ -3,16 +3,16 @@ import React, { useEffect, useState } from 'react';
 import Select, { OptionTypeBase } from 'react-select';
 
 // Material UI
-import Box from '@material-ui/core/Box';
-import Paper from '@material-ui/core/Paper';
-import WarningIcon from '@material-ui/icons/Warning';
-import SyncAltIcon from '@material-ui/icons/SyncAlt';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableRow from '@material-ui/core/TableRow';
-import InfoIcon from '@material-ui/icons/Info';
-import Typography from '@material-ui/core/Typography';
-import TableCell from '@material-ui/core/TableCell';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import WarningIcon from '@mui/icons-material/Warning';
+import SyncAltIcon from '@mui/icons-material/SyncAlt';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableRow from '@mui/material/TableRow';
+import InfoIcon from '@mui/icons-material/Info';
+import Typography from '@mui/material/Typography';
+import TableCell from '@mui/material/TableCell';
 
 // Data
 import { infoColor, sectionColor, successColor, warnColor } from '../../../../lib/theme';

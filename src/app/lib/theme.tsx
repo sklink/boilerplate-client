@@ -1,4 +1,4 @@
-import { createMuiTheme, responsiveFontSizes  } from '@material-ui/core/styles';
+import { createTheme, responsiveFontSizes, adaptV4Theme } from '@mui/material/styles';
 
 export const mainColor = '#bdd739';
 export const mainLightColor = '#ddf769';
@@ -17,7 +17,7 @@ export const warnColorLight = '#ffdf43';
 export const successColor = '#4bb543';
 export const infoColor = '#59a6f2';
 
-const theme = createMuiTheme({
+const theme = createTheme(adaptV4Theme({
   palette: {
     primary: {
       main: mainColor,
@@ -28,6 +28,6 @@ const theme = createMuiTheme({
   typography: {
     fontFamily: ['Quicksand', 'sans-serif'].join(',')
   }
-});
+}));
 
 export default responsiveFontSizes(theme);

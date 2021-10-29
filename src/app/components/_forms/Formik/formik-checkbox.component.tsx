@@ -1,9 +1,9 @@
 import React from 'react';
 
 // Material UI
-import FormControl from '@material-ui/core/FormControl/FormControl';
-import Checkbox from '@material-ui/core/Checkbox';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@mui/material/FormControl/FormControl';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import { FormLabel } from '../../_core/_ui/forms.component';
 import IntlMsg from '../../_core/IntlMsg/intl-msg.component';
 import _ from 'lodash';

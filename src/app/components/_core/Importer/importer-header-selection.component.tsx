@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 
 // Material UI
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import Paper from '@material-ui/core/Paper';
-import TableCell from '@material-ui/core/TableCell';
-import Typography from '@material-ui/core/Typography';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import TableCell from '@mui/material/TableCell';
+import Typography from '@mui/material/Typography';
 
 // Components
 import { Spacer } from '../_ui/structure.components';
 import { ButtonRow, OutlineButton, PrimaryButton } from '../_ui/buttons.component';
-import Table from '@material-ui/core/Table';
-import { TableHead } from '@material-ui/core';
-import TableRow from '@material-ui/core/TableRow';
+import Table from '@mui/material/Table';
+import { TableHead } from '@mui/material';
+import TableRow from '@mui/material/TableRow';
 import { sectionColor, successColor } from '../../../lib/theme';
-import TableBody from '@material-ui/core/TableBody';
-import CheckIcon from '@material-ui/icons/Check';
-import IconButton from '@material-ui/core/IconButton';
-import { CheckCircleOutline } from '@material-ui/icons';
+import TableBody from '@mui/material/TableBody';
+import CheckIcon from '@mui/icons-material/Check';
+import IconButton from '@mui/material/IconButton';
+import { CheckCircleOutline } from '@mui/icons-material';
 
 interface IImportHeaderSelection {
   fileName: string;

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 // Material UI
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 
 // Data
 import { successColor, warnColor } from '../../../lib/theme';

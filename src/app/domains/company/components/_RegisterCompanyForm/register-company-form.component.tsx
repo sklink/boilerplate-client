@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import { Field, Form } from 'formik';
 
 // Material UI
-import Box from '@material-ui/core/Box';
-import FormControl from '@material-ui/core/FormControl';
-import Checkbox from '@material-ui/core/Checkbox';
+import Box from '@mui/material/Box';
+import FormControl from '@mui/material/FormControl';
+import Checkbox from '@mui/material/Checkbox';
 
 // Data
 import { COMMON_MAIL_DOMAINS } from '../../../../lib/constants';

@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
 
 // Material UI
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
 
 // Data
 import logo from '../../../../assets/logo.png';
@@ -23,12 +23,12 @@ const SingleFormLayout: React.FC<ISingleFormLayout> = ({ children, width = 'auto
   return (
     <React.Fragment>
       <Container>
-        <Grid container justify="center">
+        <Grid container justifyContent="center">
           <Grid item>
             <Logo src={logo} alt={APP_TITLE} />
           </Grid>
         </Grid>
-        <Grid container justify="center">
+        <Grid container justifyContent="center">
           <Grid item>
             <Paper>
               <SingleFormWrapper width={width} maxWidth={maxWidth}>

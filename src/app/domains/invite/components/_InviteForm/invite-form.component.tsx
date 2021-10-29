@@ -3,11 +3,11 @@ import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 // Material UI
-import Box from '@material-ui/core/Box';
-import SendIcon from '@material-ui/icons/Send';
-import Checkbox from '@material-ui/core/Checkbox';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Typography from '@material-ui/core/Typography';
+import Box from '@mui/material/Box';
+import SendIcon from '@mui/icons-material/Send';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Typography from '@mui/material/Typography';
 
 // Data
 import { isValidEmail } from '../../../../lib/helpers/validation.helpers';

@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import dayjs from 'dayjs';
 
 // Material UI
-import Box from '@material-ui/core/Box';
+import Box from '@mui/material/Box';
 
 // Data
 import { buildAcceptInvite, getInvite } from '../../../invite/invite.service';

@@ -2,11 +2,9 @@ import _ from 'lodash';
 import React from 'react';
 import { USE_24_HOUR } from '../constants';
 
+
 export const numToAlpha = (num: number) =>
   (num + 9).toString(36).toUpperCase();
-
-export const toPercent = (value: number) =>
-  `${Math.round(value * 100 * 100) / 100}%`;
 
 export const numToTime = (value: number) => {
   let hours = Math.floor(value / 60);
@@ -46,58 +44,16 @@ export const timeToNum = (time: string) => {
   return sum;
 };
 
-export const toListSentence = (list: string[]) => {
-  let result = '';
+export const listToSentence = (list: string[]) => {
+  if (list.length === 1) {
+    return list[0];
+  }
 
-  if (list.length === 2) return `${list[0]} and ${list[1]}`;
+  if (list.length === 2) {
+    return `${list[0]} and ${list[1]}`;
+  }
 
-  list.forEach((item, index) => {
-    result = `${result}${item}`;
-
-    if (index <= list.length - 3) {
-      result = `${result}, `;
-    } else if (index === list.length - 2) {
-      result = `${result}, and `;
-    }
-  });
-
-  return result;
+  return `${list.slice(0, -1).join(', ')}, and ${list.slice(-1)[0]}`;
 };
-
-export const toScore = (value: string) => {
-  return Number(value).toFixed(4);
-}
-
-export const numToTimeResult = (time: number) => {
-  const minutes = getMinutes(time);
-
-  if (minutes > 0) {
-    return `${minutes}m ${getSeconds(time)}.${getHundredthSeconds(time)}s`;
-  } else {
-    return `${getSeconds(time)}.${getHundredthSeconds(time)}s`;
-  }
-}
-
-export const getMinutes = (time: number) => Math.floor(time / 60000) % 60
-
-export const getSeconds = (time: number) => Math.floor(time / 1000) % 60;
-
-export const getHundredthSeconds = (time: number) => formatTime(
-  Math.floor(time / 10) % 100
-);
-
-export const formatTime = (time: number) => {
-  return time < 10 ? `0${time}` : time.toString();
-}
-
-export const toWeighted = (weightedScore?: string) => {
-  let result = '-';
-
-  if (weightedScore && weightedScore !== '-') {
-    result = toScore(weightedScore);
-  }
-
-  return result;
-}
 
 

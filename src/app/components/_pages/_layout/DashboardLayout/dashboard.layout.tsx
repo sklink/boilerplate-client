@@ -4,11 +4,11 @@ import { useReactiveVar } from '@apollo/client';
 import styled from 'styled-components';
 
 // Material UI
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import Paper from '@material-ui/core/Paper';
-import IconButton from '@material-ui/core/IconButton';
-import AddIcon from '@material-ui/icons/AddCircle';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import IconButton from '@mui/material/IconButton';
+import AddIcon from '@mui/icons-material/AddCircle';
 
 // Components
 import DashboardSidebar, { isContextCollapsedVar } from './dashboard-sidebar.component';
@@ -50,7 +50,7 @@ const DashboardLayout: React.FC<DashboardProps> = ({ children, hideSidebar }) =>
         <FullMainWrapper>
           <Box width="300px" display="flex" alignItems="center">
             <Box flexGrow={1} mr={1}><AssessmentSelectorGraphQL /></Box>
-            <IconButton onClick={() => history.push('/assessments/create')}>
+            <IconButton onClick={() => history.push('/assessments/create')} size="large">
               <AddIcon style={{ color: mainColor }} />
             </IconButton>
           </Box>

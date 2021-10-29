@@ -2,7 +2,7 @@ import React from 'react';
 import Select from 'react-select';
 
 // Material UI
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 
 // Data
 import { IAssessmentSelector } from './assessment-selector.interface';

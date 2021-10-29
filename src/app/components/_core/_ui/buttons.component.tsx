@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-// Material Ui
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+import withStyles from '@mui/styles/withStyles';
+import Button from '@mui/material/Button';
 
 import theme, { dangerColor, dangerColorLight, warnColor, warnColorLight } from '../../../lib/theme';
 
@@ -127,7 +126,7 @@ export const ButtonRow = styled.div`
   display: flex;
 
   & > button, & > div {
-    margin: 0 ${theme.spacing(1)}px;
+    margin: 0 ${theme.spacing(1)};
   }
 
   & > button:first-child, & > div:first-child {

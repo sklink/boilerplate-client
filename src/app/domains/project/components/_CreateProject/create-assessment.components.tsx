@@ -2,8 +2,8 @@ import React from 'react';
 import { Field, Form } from 'formik';
 
 // Material UI
-import Box from '@material-ui/core/Box';
-import FormControl from '@material-ui/core/FormControl';
+import Box from '@mui/material/Box';
+import FormControl from '@mui/material/FormControl';
 
 // Data
 import messages from './create-assessment.messages';

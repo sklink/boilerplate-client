@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Material UI
-import Grid from '@material-ui/core/Grid';
+import Grid from '@mui/material/Grid';
 
 // Components
 import DashboardLayout from '../../../../components/_pages/_layout/DashboardLayout/dashboard.layout';

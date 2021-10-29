@@ -2,9 +2,9 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 // Material UI
-import Box from '@material-ui/core/Box';
-import Avatar from '@material-ui/core/Avatar';
-import withStyles from '@material-ui/core/styles/withStyles';
+import Box from '@mui/material/Box';
+import Avatar from '@mui/material/Avatar';
+import withStyles from '@mui/styles/withStyles';
 import theme, { mainColor, sectionColor, sectionDarkerColor } from '../../../lib/theme';
 import { getDenseStatus } from '../PersistGateContainer/persist-gate.container';
 

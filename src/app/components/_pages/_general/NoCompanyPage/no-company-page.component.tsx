@@ -1,9 +1,9 @@
 import React from 'react';
 
 // Material UI
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 
 // Data
 import { buildSignOut } from '../../../../domains/_auth/auth.service';
@@ -21,8 +21,8 @@ const NoCompanyPage = () => {
 
   return (
     <Container>
-      <Grid container spacing={3} justify="center" alignItems="center">
-        <Grid container item xs={12} justify="center" alignItems="center">
+      <Grid container spacing={3} justifyContent="center" alignItems="center">
+        <Grid container item xs={12} justifyContent="center" alignItems="center">
           <Logo src={logo} alt={APP_TITLE} />
         </Grid>
         <Grid item xs={12}>

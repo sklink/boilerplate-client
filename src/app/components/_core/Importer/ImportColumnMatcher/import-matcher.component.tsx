@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
 
 // Material UI
-import Box from '@material-ui/core/Box';
-import Chip from '@material-ui/core/Chip';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import Link from '@material-ui/core/Link';
-import Check  from '@material-ui/icons/Check';
+import Box from '@mui/material/Box';
+import Chip from '@mui/material/Chip';
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import Link from '@mui/material/Link';
+import Check  from '@mui/icons-material/Check';
 
 // Data
 import { IImportMatcher } from './import-matcher.interface';

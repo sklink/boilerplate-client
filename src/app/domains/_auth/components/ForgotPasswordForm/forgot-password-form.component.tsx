@@ -2,8 +2,8 @@ import React from 'react';
 import { Form, Field } from 'formik';
 
 // Material UI
-import FormControl from '@material-ui/core/FormControl';
-import Box from '@material-ui/core/Box';
+import FormControl from '@mui/material/FormControl';
+import Box from '@mui/material/Box';
 
 // Data
 import messages from './forgot-password-form.messages';

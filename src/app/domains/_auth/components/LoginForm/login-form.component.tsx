@@ -5,9 +5,9 @@ import { NavLink } from 'react-router-dom';
 import { useHistory } from 'react-router';
 
 // Material UI
-import Box from '@material-ui/core/Box';
-import FormControl from '@material-ui/core/FormControl';
-import Divider from '@material-ui/core/Divider';
+import Box from '@mui/material/Box';
+import FormControl from '@mui/material/FormControl';
+import Divider from '@mui/material/Divider';
 
 // Data
 import messages from './login-form.messages';

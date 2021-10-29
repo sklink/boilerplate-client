@@ -4,11 +4,11 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { VirtualizedTable } from '../_ui/virtualized-table.component';
 import { IColumnMap } from './ImportColumnMatcher/import-matcher.interface';
 import { ColumnProps } from 'react-virtualized';
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import _ from 'lodash';
 import { Spacer } from '../_ui/structure.components';
 import { PrimaryButton } from '../_ui/buttons.component';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import { setIn } from 'formik';
 
 interface IImporterResults {

@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 // Material UI
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
 
 // Data
 import logo from '../../../../assets/logo.png';
@@ -15,8 +15,8 @@ import { Text } from '../../../_core/_ui/typography.component';
 
 const NoDesktop = () => (
   <Container id="no-desktop">
-    <Grid container spacing={3} justify="center" alignItems="center">
-      <Grid container item xs={12} justify="center" alignItems="center">
+    <Grid container spacing={3} justifyContent="center" alignItems="center">
+      <Grid container item xs={12} justifyContent="center" alignItems="center">
         <Logo src={logo} alt={APP_TITLE} />
       </Grid>
       <Grid item xs={12}>

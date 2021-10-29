@@ -3,11 +3,11 @@ import React, { ReactNode } from 'react';
 import Select from 'react-select';
 
 // Material UI
-import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
-import FormControl from '@material-ui/core/FormControl';
-import ListItem from '@material-ui/core/ListItem';
-import List from '@material-ui/core/List';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import FormControl from '@mui/material/FormControl';
+import ListItem from '@mui/material/ListItem';
+import List from '@mui/material/List';
 
 // Components
 import { IFormOption } from '../_ui/forms.component';

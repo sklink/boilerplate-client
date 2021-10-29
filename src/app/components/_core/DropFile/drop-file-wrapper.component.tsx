@@ -6,7 +6,7 @@ export const DropFileWrapper = styled.div`
   border-radius: ${borderRadius};
   border: 2px dashed ${borderColor};
   text-align: center;
-  padding: ${theme.spacing(4)}px;
+  padding: ${theme.spacing(4)};
   display: flex;
   align-items: center;
   flex-direction: column;

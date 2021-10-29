@@ -4,10 +4,10 @@ import { useHistory } from 'react-router-dom';
 import { makeVar, useReactiveVar } from '@apollo/client';
 
 // Material UI
-import Box from '@material-ui/core/Box';
-import AddIcon from '@material-ui/icons/AddCircle';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
+import Box from '@mui/material/Box';
+import AddIcon from '@mui/icons-material/AddCircle';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
 
 // Data
 import { mainColor } from '../../../../lib/theme';
@@ -16,10 +16,10 @@ import { isNavCollapsedVar } from './dashboard-nav.component';
 // Components
 import AssessmentSelectorGraphQL from '../../../../domains/project/components/_ProjectSelector/assessment-selector.graphql';
 import GlobalAgeGroupFilterGraphQL from '../../../AgeGroup/GlobalAgeGroupFilter/global-age-group-filter.graphql';
-import ArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
-import ArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
-import withStyles from '@material-ui/core/styles/withStyles';
-import { Fab } from '@material-ui/core';
+import ArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import ArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import withStyles from '@mui/styles/withStyles';
+import { Fab } from '@mui/material';
 
 interface IWrapper {
   isNavCollapsed?: boolean;
@@ -78,7 +78,7 @@ const DashboardSidebar = () => {
       {!isCollapsed && <>
         <Box display="flex" alignItems="center">
           <Box flexGrow={1} mr={1}><AssessmentSelectorGraphQL /></Box>
-          <IconButton onClick={() => history.push('/assessments/create')}>
+          <IconButton onClick={() => history.push('/assessments/create')} size="large">
             <AddIcon style={{ color: mainColor }} />
           </IconButton>
         </Box>

@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 // Material UI
-import Box from '@material-ui/core/Box';
+import Box from '@mui/material/Box';
 
 const ItemText = styled.div`
 `;

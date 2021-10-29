@@ -4,15 +4,15 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
 // Material UI
-import DeleteIcon from '@material-ui/icons/Delete';
-import TableCell from '@material-ui/core/TableCell';
-import Tooltip from '@material-ui/core/Tooltip';
-import IconButton from '@material-ui/core/IconButton';
-import Checkbox from '@material-ui/core/Checkbox';
-import UnarchiveIcon from '@material-ui/icons/Unarchive';
-import Box from '@material-ui/core/Box';
-import ArchiveIcon from '@material-ui/icons/Archive';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import DeleteIcon from '@mui/icons-material/Delete';
+import TableCell from '@mui/material/TableCell';
+import Tooltip from '@mui/material/Tooltip';
+import IconButton from '@mui/material/IconButton';
+import Checkbox from '@mui/material/Checkbox';
+import UnarchiveIcon from '@mui/icons-material/Unarchive';
+import Box from '@mui/material/Box';
+import ArchiveIcon from '@mui/icons-material/Archive';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 // Data
 import { SESSIONS_TERM } from '../../../../lib/constants';
@@ -130,51 +130,51 @@ const MemberList: React.FC<IMemberList> = ({
     { key: 'users', label: 'User Management', disableSort: true, helper: 'Allows access to invite and manage users' },
   ];
 
-  return (
-    <>
-      <EnhancedTable
-        numCols={7}
-        rows={rows}
-        columns={columns}
-        defaultOrder="player.lastName"
-        entityName="players"
-        showError={fetchError}
-        showLoading={loading && rows.length === 0}
-        title="Users"
-        selected={selected}
-        setSelected={setSelected}
-        selectedAction={(
-          <Tooltip title={viewingArchived ? 'Restore Access' : 'Revoke Access'}>
-            <IconButton onClick={() => {
+  return <>
+    <EnhancedTable
+      numCols={7}
+      rows={rows}
+      columns={columns}
+      defaultOrder="player.lastName"
+      entityName="players"
+      showError={fetchError}
+      showLoading={loading && rows.length === 0}
+      title="Users"
+      selected={selected}
+      setSelected={setSelected}
+      selectedAction={(
+        <Tooltip title={viewingArchived ? 'Restore Access' : 'Revoke Access'}>
+          <IconButton
+            onClick={() => {
               const _ids = selected.map(item => item._id);
               viewingArchived ? restoreAccess(_ids) : revokeAccess(_ids);
               setSelected([]);
-            }}>
-              {viewingArchived ? <UnarchiveIcon /> : <DeleteIcon />}
-            </IconButton>
-          </Tooltip>
-        )}
-        filterComponent={(
-          <FormInput
-            placeholder={viewingArchived ? `Search archived users...` : `Search users...`}
-            onKeyUp={(e: any) => search(e.currentTarget.value)} />
-        )}
-      />
+            }}
+            size="large">
+            {viewingArchived ? <UnarchiveIcon /> : <DeleteIcon />}
+          </IconButton>
+        </Tooltip>
+      )}
+      filterComponent={(
+        <FormInput
+          placeholder={viewingArchived ? `Search archived users...` : `Search users...`}
+          onKeyUp={(e: any) => search(e.currentTarget.value)} />
+      )}
+    />
 
-      {countArchivedMembers > 0 && !viewingArchived && (
-        <Box display="flex">
-          <Spacer />
-          <SecondaryButton startIcon={<ArchiveIcon />} onClick={() => setViewingArchived(true)}>View Archived Users</SecondaryButton>
-        </Box>
-      )}
-      {viewingArchived && (
-        <Box display="flex">
-          <Spacer />
-          <PrimaryButton startIcon={<ArrowBackIosIcon />} onClick={() => setViewingArchived(false)}>Back to Users</PrimaryButton>
-        </Box>
-      )}
-    </>
-  );
+    {countArchivedMembers > 0 && !viewingArchived && (
+      <Box display="flex">
+        <Spacer />
+        <SecondaryButton startIcon={<ArchiveIcon />} onClick={() => setViewingArchived(true)}>View Archived Users</SecondaryButton>
+      </Box>
+    )}
+    {viewingArchived && (
+      <Box display="flex">
+        <Spacer />
+        <PrimaryButton startIcon={<ArrowBackIosIcon />} onClick={() => setViewingArchived(false)}>Back to Users</PrimaryButton>
+      </Box>
+    )}
+  </>;
 }
 
 export default MemberList;

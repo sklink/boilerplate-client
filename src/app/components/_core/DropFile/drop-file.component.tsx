@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 
 // Material UI
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 
 // Data
 import { IDropFile } from './drop-file.interfaces';

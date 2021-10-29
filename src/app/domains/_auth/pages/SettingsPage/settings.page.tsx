@@ -2,8 +2,8 @@ import _ from 'lodash';
 import React from 'react';
 
 // Material UI
-import Grid from '@material-ui/core/Grid';
-import FormControl from '@material-ui/core/FormControl/FormControl';
+import Grid from '@mui/material/Grid';
+import FormControl from '@mui/material/FormControl/FormControl';
 
 // Data
 import messages from './settings-page.messages';

@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Material UI
-import Box from '@material-ui/core/Box';
+import Box from '@mui/material/Box';
 
 // Data
 import ChatWoot from '../../../lib/utils/chat.service';

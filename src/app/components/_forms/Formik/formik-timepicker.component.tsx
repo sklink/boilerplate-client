@@ -1,19 +1,17 @@
 import _ from 'lodash';
 import React from 'react';
 import dayjs from 'dayjs';
-import DateFnsUtils from '@date-io/date-fns';
+import { styled } from '@mui/material/styles';
 
 // Material UI
-import Box from '@material-ui/core/Box';
-import FormControl from '@material-ui/core/FormControl/FormControl';
-import { KeyboardTimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
-import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
+import Box from '@mui/material/Box';
+import FormControl from '@mui/material/FormControl/FormControl';
+import TimePicker from '@mui/lab/TimePicker';
 
 // Components
 import { FormHelperText, FormInput, FormLabel } from '../../_core/_ui/forms.component';
 import IntlMsg from '../../_core/IntlMsg/intl-msg.component';
 import { timeToNum } from '../../../lib/helpers/conversion.helpers';
-import styled from 'styled-components';
 
 interface IFormikTimePicker {
   id?: string,
@@ -46,28 +44,23 @@ const FormikTimePicker: React.FC<IFormikTimePicker> = ({
   return (
     <FormControl margin="dense" fullWidth component="div" error={!!error && touched}>
       {labelOutput}
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <KeyboardTimePicker
-          id={_id}
-          autoOk
-          minutesStep={5}
-          margin="normal"
-          mask="__:__ _M"
-          value={dayjs().startOf('day').add(field.value, 'minute').toDate()}
-          onChange={(value: MaterialUiPickersDate) => {
-            if (value) {
-              form.setFieldValue(field.name, timeToNum(dayjs(value).format('h:mm A')));
-            }
-          }}
-          TextFieldComponent={TextFieldComponent}
-        />
-      </MuiPickersUtilsProvider>
+      <TimePicker
+        minutesStep={5}
+        mask="__:__ _M"
+        value={dayjs().startOf('day').add(field.value, 'minute').toDate()}
+        onChange={(date: any) => {
+          if (date) {
+            form.setFieldValue(field.name, timeToNum(dayjs(date).format('h:mm A')));
+          }
+        }}
+        renderInput={(props) => <TextFieldComponent {...props} />}
+      />
       {touched && _.isString(error) && <FormHelperText>{error}</FormHelperText>}
     </FormControl>
   );
 }
 
-const AdornmentWrapper = styled.div`
+const AdornmentWrapper = styled('div')`
   margin-right: 4px;
   padding: 3px 0px;
 

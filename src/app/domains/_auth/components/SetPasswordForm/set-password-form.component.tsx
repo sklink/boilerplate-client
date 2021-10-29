@@ -4,8 +4,8 @@ import { Form, Field, FormikProps } from 'formik';
 import styled from 'styled-components';
 
 // Material UI
-import FormControl from '@material-ui/core/FormControl';
-import Box from '@material-ui/core/Box';
+import FormControl from '@mui/material/FormControl';
+import Box from '@mui/material/Box';
 
 // Components
 import FormikInput from '../../../../components/_forms/Formik/formik-input.component';

@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React from 'react';
 
 // Material UI
-import FormControl from '@material-ui/core/FormControl/FormControl';
+import FormControl from '@mui/material/FormControl/FormControl';
 
 // Components
 import { FormHelperText, FormInput, FormLabel } from '../../_core/_ui/forms.component';

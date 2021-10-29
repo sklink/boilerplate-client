@@ -35,6 +35,6 @@ export const FieldName = styled.span`
 
 export const Quote = styled.div`
   border-left: 1px solid #ddd;
-  padding-left: ${theme.spacing(2)}px;
-  margin: ${theme.spacing(2)}px 0;
+  padding-left: ${theme.spacing(2)};
+  margin: ${theme.spacing(2)} 0;
 `;

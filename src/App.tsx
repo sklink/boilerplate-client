@@ -2,10 +2,12 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { IonApp } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider, Theme, StyledEngineProvider } from '@mui/material/styles';
 import * as Sentry from '@sentry/react';
 import { Integrations } from '@sentry/tracing';
 import { IntlProvider } from 'react-intl';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -31,6 +33,12 @@ import theme, { backgroundColor } from './app/lib/theme';
 import PersistedApolloProvider from './app/components/_core/PersistGateContainer/persist-gate.container';
 import OfflineHydrator from './app/components/_core/OfflineHandler/offline-handler.container';
 
+declare module '@mui/styles/defaultTheme' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface DefaultTheme extends Theme {}
+}
+
+
 if (process.env.REACT_APP_SENTRY_ENV && process.env.REACT_APP_SENTRY_ENV !== 'development') {
   Sentry.init({
     dsn: process.env.REACT_APP_SENTRY,
@@ -44,19 +52,23 @@ if (process.env.REACT_APP_SENTRY_ENV && process.env.REACT_APP_SENTRY_ENV !== 'de
 
 const App: React.FC = () => (
   <PersistedApolloProvider>
-    <OfflineHydrator>
-      <ThemeProvider theme={theme}>
-        <IntlProvider locale="en">
-          <IonApp style={{ background: backgroundColor }}>
-            <IonReactRouter>
-              <Switch>
-                {ROUTES}
-              </Switch>
-            </IonReactRouter>
-          </IonApp>
-        </IntlProvider>
-      </ThemeProvider>
-    </OfflineHydrator>
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <OfflineHydrator>
+        <StyledEngineProvider injectFirst>
+          <ThemeProvider theme={theme}>
+            <IntlProvider locale="en">
+              <IonApp style={{ background: backgroundColor }}>
+                <IonReactRouter>
+                  <Switch>
+                    {ROUTES}
+                  </Switch>
+                </IonReactRouter>
+              </IonApp>
+            </IntlProvider>
+          </ThemeProvider>
+        </StyledEngineProvider>
+      </OfflineHydrator>
+    </LocalizationProvider>
   </PersistedApolloProvider>
 );
 
