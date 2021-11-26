@@ -16,8 +16,8 @@ import EqualizerIcon from '@mui/icons-material/Equalizer';
 
 // Data
 import { SESSION_TERM } from '../../../../lib/constants';
-import logo from '../../../../assets/logo.png'
-import logoIcon from '../../../../assets/logo-icon.png'
+import logo from '../../../../assets/logo.svg'
+import logoIcon from '../../../../assets/logo-icon.svg'
 
 // Components
 import { CollapsibleNavItem } from '../../../_core/_ui/nav.components';

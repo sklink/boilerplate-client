@@ -11,18 +11,31 @@ import IntlMsg from '../../misc/IntlMsg/intl-msg.component';
 import { Spacer } from '../../misc/misc.styled-components';
 import { CheckboxList, CheckboxListHeading, CheckboxListItem } from '../../_ui/form.components';
 import FormLabel from '../FormLabel/form-label.styled';
+import Required from '../required.component';
 
-const FormikCheckboxList = ({ field, fid, id, label, form, options, loading, hasNoOptionsMsg }) => {
+interface IFormikCheckboxList {
+  id?: string;
+  fid?: string;
+  field: any;
+  label: any;
+  form: any;
+  options: any[];
+  loading?: boolean;
+  hasNoOptionsMsg?: string;
+  required?: boolean;
+}
+
+const FormikCheckboxList: React.FC<IFormikCheckboxList> = ({ field, fid, id, label, form, options, loading, hasNoOptionsMsg, required }) => {
   const { values, setFieldValue } = form;
 
   const _id = id || `${fid}_${field.name}`;
-  const error = form.errors[field.name];
+  const error = _.get(form, `errors.${field.name}`);
 
   let eleLabel = label;
   if (label && label.id) {
-    eleLabel = <FormLabel htmlFor={_id}><IntlMsg {...label} /></FormLabel>;
+    eleLabel = <FormLabel htmlFor={_id}><IntlMsg {...label} />{required && <Required />}</FormLabel>;
   } else if (label && _.isString(label)) {
-    eleLabel = <FormLabel htmlFor={_id}>{label}</FormLabel>;
+    eleLabel = <FormLabel htmlFor={_id}>{label}{required && <Required />}</FormLabel>;
   }
 
   return (
@@ -50,7 +63,7 @@ const FormikCheckboxList = ({ field, fid, id, label, form, options, loading, has
             <Checkbox
               id={`option__${option.value}`}
               onChange={e => setFieldValue(`${field.name}.${option.value}`, e.currentTarget.checked)}
-              checked={Boolean(values[field.name][option.value])}
+              checked={Boolean(_.get(values, `${field.name}.${option.value}`)}
             />
           </CheckboxListItem>
         ))}

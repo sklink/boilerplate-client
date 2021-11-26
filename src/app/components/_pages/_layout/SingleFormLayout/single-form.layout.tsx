@@ -6,7 +6,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 
 // Data
-import logo from '../../../../assets/logo.png';
+import logo from '../../../../assets/logo.svg';
 import { APP_TITLE } from '../../../../../_configuration';
 
 // Components

@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 
 // Data
 import { buildSignOut } from '../../../../domains/_auth/auth.service';
-import logo from '../../../../assets/logo.png';
+import logo from '../../../../assets/logo.svg';
 import { APP_TITLE, COMPANY_TERM, SUPPORT_EMAIL } from '../../../../../_configuration';
 import { pluralTerm } from '../../../../lib/helpers/content.helper';
 

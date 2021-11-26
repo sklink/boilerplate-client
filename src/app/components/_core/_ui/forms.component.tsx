@@ -37,7 +37,8 @@ export const FormHelperText = withStyles({
     fontWeight: 700,
     '& .success': {
       color: `${successColor} !important`
-    }
+    },
+    margin: '4px 0 0'
   },
   error: {
     color: `${dangerColor} !important`,

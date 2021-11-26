@@ -11,7 +11,7 @@ import DatePicker from '@mui/lab/DatePicker';
 // Components
 import { FormHelperText, FormInput, FormLabel } from '../../_core/_ui/forms.component';
 import IntlMsg from '../../_core/IntlMsg/intl-msg.component';
-import { RequiredStar } from './formik-input.component';
+import Required from '../required.component';
 
 interface IFormikDatePicker {
   id?: string,
@@ -38,14 +38,14 @@ const FormikDatePicker: React.FC<IFormikDatePicker> = ({
   ...rest
 }) => {
   const _id = id || fid;
-  const error = form.errors[field.name];
-  const touched = form.touched[field.name];
+  const error = _.get(form, `errors.${field.name}`);
+  const touched = _.get(form, `touched.${field.name}`);
 
   let labelOutput = label;
   if (label && label.id) {
-    labelOutput = <FormLabel htmlFor={_id}><IntlMsg {...label} />{required && <RequiredStar>*</RequiredStar>}</FormLabel>;
+    labelOutput = <FormLabel htmlFor={_id}><IntlMsg {...label} />{required && <Required />}</FormLabel>;
   } else if (label && _.isString(label)) {
-    labelOutput = <FormLabel htmlFor={_id}>{label}{required && <RequiredStar>*</RequiredStar>}</FormLabel>;
+    labelOutput = <FormLabel htmlFor={_id}>{label}{required && <Required />}</FormLabel>;
   }
 
   return (

@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
 // Data
-import logo from '../../../../assets/logo.png';
+import logo from '../../../../assets/logo.svg';
 import { APP_TITLE, SUPPORT_EMAIL } from '../../../../../_configuration';
 
 // Components

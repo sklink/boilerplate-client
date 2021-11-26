@@ -10,6 +10,7 @@ import FormControl from '@mui/material/FormControl/FormControl';
 // Components
 import { FormLabel } from '../../_core/_ui/forms.component';
 import IntlMsg from '../../_core/IntlMsg/intl-msg.component';
+import Required from '../required.component';
 
 interface IFormikSelect {
   canCreate?: boolean;
@@ -23,19 +24,20 @@ interface IFormikSelect {
   options: any[];
   margin?: 'none' | 'dense' | 'normal';
   isMulti?: boolean;
+  required?: boolean;
 }
 
-export const FormikSelect: React.FC<IFormikSelect> = ({ margin, canCreate, createMethod, options, field, form, fid, id, label, isMulti, ...rest }) => {
+export const FormikSelect: React.FC<IFormikSelect> = ({ margin, canCreate, createMethod, options, field, form, fid, id, label, isMulti, required, ...rest }) => {
   const Control: any = canCreate ? CreatableSelect : Select;
   const _id = id || fid;
-  const error = form.errors[field.name];
-  const touched = form.touched[field.name];
+  const error = _.get(form, `errors.${field.name}`);
+  const touched = _.get(form, `touched.${field.name}`);
 
   let labelOutput = label;
   if (label && label.id) {
-    labelOutput = <FormLabel htmlFor={_id}><IntlMsg {...label} /></FormLabel>;
+    labelOutput = <FormLabel htmlFor={_id}><IntlMsg {...label} />{required && <Required />}</FormLabel>;
   } else if (label && _.isString(label)) {
-    labelOutput = <FormLabel htmlFor={_id}>{label}</FormLabel>;
+    labelOutput = <FormLabel htmlFor={_id}>{label}{required && <Required />}</FormLabel>;
   }
 
   options = options.length && _.isString(options[0])
