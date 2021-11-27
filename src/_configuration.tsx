@@ -5,6 +5,7 @@ export const SUPPORT_EMAIL = 'contact@mattdoak.ca';
 export const ENABLE_DEKSTOP = true;
 export const ENABLE_MOBILE = true;
 
+export const ENABLE_CHAT_SUPPORT = false;
 export const ENABLE_SENTRY = true;
 export const ENABLE_LOGROCKET = true;
 export const ENABLE_CHAT = true;

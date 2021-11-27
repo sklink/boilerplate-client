@@ -8,6 +8,7 @@ import { useHistory } from 'react-router';
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 
 // Data
 import messages from './login-form.messages';
@@ -18,14 +19,11 @@ import FormikInput from '../../../../components/_forms/Formik/formik-input.compo
 import { PrimaryButton } from '../../../../components/_core/_ui/buttons.component';
 import { Spacer } from '../../../../components/_core/_ui/structure.components';
 import { FormHelperText, FormLabel } from '../../../../components/_core/_ui/forms.component';
-import { SectionHeading, Text } from '../../../../components/_core/_ui/typography.component';
 
 const LoginForm: React.FC<LoginFormProps> = ({ form, submitError }) => {
-  const history = useHistory();
-
   return (
     <Form>
-      <SectionHeading>Sports Association Staff</SectionHeading>
+      <Typography variant="h5">Sign in</Typography>
       <Field fid="lf" name="email" type="email" component={FormikInput} label="Email" />
       <Field fid="lf" name="password" type="password" component={FormikInput} label={
         <Box display="flex">
@@ -40,10 +38,6 @@ const LoginForm: React.FC<LoginFormProps> = ({ form, submitError }) => {
         </PrimaryButton>
       </FormControl>
       {submitError && <FormHelperText error>{submitError}</FormHelperText>}
-      <Box my={4}><Divider /></Box>
-      <SectionHeading>Parents & Players</SectionHeading>
-      <Text>Unable to find an email with your ice times? Request below:</Text>
-      <PrimaryButton onClick={() => history.push('/request-emails')} variant="contained">Resend Hockey Emails</PrimaryButton>
     </Form>
   );
 };

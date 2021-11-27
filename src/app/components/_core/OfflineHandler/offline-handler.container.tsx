@@ -1,8 +1,8 @@
 import React, { ReactNode, useEffect, useState } from 'react';
-import { makeVar, useApolloClient, useReactiveVar } from '@apollo/client';
+import { useApolloClient } from '@apollo/client';
 
 import { removeTrackedQuery, trackedQueries } from '../../../lib/utils/tracker.link';
-import { UPDATE_HANDLERS } from '../../../lib/services/update-handler.service';
+import { UPDATE_HANDLERS } from '../../../lib/utils/update.handler';
 
 import LoadingPage from '../../_pages/_general/LoadingPage/loading-page.container';
 import { getQueueOpen, isSyncing } from '../PersistGateContainer/persist-gate.container';
@@ -20,7 +20,6 @@ const OfflineHydrator: React.FC<IOfflineHydrator> = ({ children }) => {
 
   console.log('isQueueOpen', isQueueOpen)
   useEffect(() => {
-    console.log('running...');
     const promises: Array<Promise<any>> = [];
 
     trackedQueries().forEach(trackedQuery => {

@@ -18,10 +18,6 @@ export const PageTitle = styled.h1`
 `;
 
 
-export const SectionHeading = styled.h3`
-
-`;
-
 export const Bold = styled.span`
   font-weight: 500;
 `;

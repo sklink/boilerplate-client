@@ -19,7 +19,6 @@ import FormikInput from '../../../../components/_forms/Formik/formik-input.compo
 import { FormHelperText, FormLabel } from '../../../../components/_core/_ui/forms.component';
 import { PrimaryButton } from '../../../../components/_core/_ui/buttons.component';
 import IntlMsg from '../../../../components/_core/IntlMsg/intl-msg.component';
-import { SectionHeading } from '../../../../components/_core/_ui/typography.component';
 import FormikSelect from '../../../../components/_forms/Formik/formik-select.component';
 import { TIMEZONE_NAME_OPTIONS } from '../../../../lib/constants/timezone.constants';
 
@@ -96,7 +95,7 @@ const RegisterCompanyForm: React.FC<IRegisterCompanyFormProps> = ({ form, currSt
 
   return (
     <Form>
-      <SectionHeading>{_.capitalize(COMPANY_TERM)} Sign Up</SectionHeading>
+      <Typography variant="h5">{_.capitalize(COMPANY_TERM)} Sign Up</Typography>
       <VerificationMsg hidden={currStep !== 3}>
         An email has been sent to the address you provided<br />Please verify your email to gain access to {APP_TITLE}
       </VerificationMsg>

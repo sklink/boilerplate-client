@@ -4,6 +4,7 @@ import { Form, Field } from 'formik';
 // Material UI
 import FormControl from '@mui/material/FormControl';
 import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 // Data
 import messages from './forgot-password-form.messages';
@@ -12,7 +13,6 @@ import { ForgotPasswordFormProps } from './forgot-password-form.interface';
 // Components
 import { PrimaryButton } from '../../../../components/_core/_ui/buttons.component';
 import IntlMsg from '../../../../components/_core/IntlMsg/intl-msg.component';
-import { Text } from '../../../../components/_core/_ui/typography.component';
 import FormikInput from '../../../../components/_forms/Formik/formik-input.component';
 import { FormHelperText } from '../../../../components/_core/_ui/forms.component';
 
@@ -22,14 +22,14 @@ const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({ form, isSubmitt
 
   if (isSubmitted) return (
     <Box display="flex" flexDirection="column" alignItems="center">
-      <Text key="submitted">An email has been sent. Please follow the instructions there to reset your password</Text>
+      <Typography key="submitted">An email has been sent. Please follow the instructions there to reset your password</Typography>
     </Box>
   );
 
   return (
     <Form>
       <h3>Reset your password</h3>
-      <Text>Enter the email address associated with your account and we&#8217;ll send you a link to reset your password.</Text>
+      <Typography>Enter the email address associated with your account and we&#8217;ll send you a link to reset your password.</Typography>
 
       <Field fid="fpf" name="email" type="email" label={messages.lblEmail} component={FormikInput} />
 
