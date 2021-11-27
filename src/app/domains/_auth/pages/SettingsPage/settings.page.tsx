@@ -10,9 +10,9 @@ import messages from './settings-page.messages';
 import { getAuthUser } from '../../auth.service';
 
 // Components
-import IntlMsg from '../../../../components/_core/IntlMsg/intl-msg.component';
-import { FormInput, FormLabel } from '../../../../components/_core/_ui/forms.component';
-import DashboardLayout from '../../../../components/_pages/_layout/DashboardLayout/dashboard.layout';
+import IntlMsg from '../../../_core/IntlMsg/intl-msg.component';
+import { FormInput, FormLabel } from '../../../_core/_ui/forms.component';
+import DashboardLayout from '../../../_pages/_layout/DashboardLayout/dashboard.layout';
 import SetPasswordFormContainer from '../../components/SetPasswordForm/set-password-form.container';
 
 const SettingsPage = () => {

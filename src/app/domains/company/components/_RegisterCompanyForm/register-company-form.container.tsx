@@ -7,7 +7,7 @@ import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
 
 // Data
-import { COMMON_MAIL_DOMAINS } from '../../../../lib/constants';
+import { COMMON_MAIL_DOMAINS } from '../../../../lib/_constants';
 import { isValidEmail } from '../../../../lib/helpers/validation.helpers';
 import { buildRegisterCompany, getCompanyByDomain } from '../../company.service';
 import { TIMEZONE_NAME_OPTIONS } from '../../../../lib/constants/timezone.constants';

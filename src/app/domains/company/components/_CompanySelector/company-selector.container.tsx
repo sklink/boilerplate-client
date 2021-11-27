@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 // Components
 import CompanySelector from './company-selector.component';
-import { IFormOption } from '../../../../components/_core/_ui/forms.component';
+import { IFormOption } from '../../../_core/_ui/forms.component';
 
 interface ICompanySelectorContainer {
   fetchError: boolean;
@@ -38,6 +38,7 @@ const CompanySelectorContainer: React.FC<ICompanySelectorContainer> = ({
     }
 
     setActiveCompanyOption(nextActiveCompanyOption);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, companies]);
 
   const handleSwitchCompany = (_id: string) => switchCompanyMutation(_id);

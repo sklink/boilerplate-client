@@ -13,7 +13,7 @@ import IconButton from '@mui/material/IconButton';
 import SendIcon from '@mui/icons-material/Send';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Paper from '@mui/material/Paper';
-import { FormHelperText } from '../../../../components/_core/_ui/forms.component';
+import { FormHelperText } from '../../../_core/_ui/forms.component';
 
 dayjs.extend(relativeTime);
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 // Data
 import { buildCancelInvite, buildResendInvite, getInvites } from '../../invite.service';
-import { INVITE_STATUSES } from '../../../../lib/constants';
+import { INVITE_STATUSES } from '../../../../lib/_constants';
 
 // Components
 import InviteList from './invite-list.component';

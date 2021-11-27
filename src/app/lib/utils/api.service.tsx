@@ -1,4 +1,4 @@
-import { BASE_API_URL, HTTP_PROTOCOL } from '../constants';
+import { BASE_API_URL, HTTP_PROTOCOL } from '../_constants';
 
 class RestService {
   static async post(endpoint: string, payload = {}) {

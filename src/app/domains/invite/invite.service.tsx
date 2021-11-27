@@ -11,7 +11,7 @@ import {
 } from './invite.queries';
 
 import { getActiveCompanyId } from '../company/company.service';
-import { UPDATE_HANDLERS } from '../../lib/services/update-handler.service';
+import { UPDATE_HANDLERS } from '../../lib/utils/update.handler';
 
 export const getInvite = (code: string) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks

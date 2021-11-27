@@ -28,8 +28,6 @@ export const getUserMode = () => {
 export const buildSetAuthUser = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const client = useApolloClient();
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const history = useHistory();
 
   return (user: any, currUserMode?: string, redirect?: string) =>
     client.clearStore()

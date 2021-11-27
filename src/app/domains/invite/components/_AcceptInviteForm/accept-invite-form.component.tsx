@@ -1,15 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from '@mui/material/styles';
 import { Field, Form, FormikProps } from 'formik';
 
 // Material UI
 import FormControl from '@mui/material/FormControl';
 
 // Components
-import FormikInput from '../../../../components/_forms/Formik/formik-input.component';
-import { PrimaryButton } from '../../../../components/_core/_ui/buttons.component';
+import FormikInput from '../../../_forms/Formik/formik-input.component';
+import { Button } from '../../../_core/_ui/buttons.component';
 
-const CompanyListing = styled.div`
+const CompanyListing = styled('div')`
   background: #fff;
   border-radius: 4px;
   border: 1px solid #ddd;
@@ -58,9 +58,9 @@ const AcceptInviteForm: React.FC<AcceptInviteFormProps> = ({ form, invite }) => 
       )}
 
       <FormControl margin="dense">
-        <PrimaryButton disabled={isSubmitting || !isValid} type="submit" variant="contained">
+        <Button color="primary" disabled={isSubmitting || !isValid} type="submit" variant="contained">
           {isSubmitting ? "Submitting" : "Accept Invite"}
-        </PrimaryButton>
+        </Button>
       </FormControl>
     </Form>
   );

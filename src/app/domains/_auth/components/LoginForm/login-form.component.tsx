@@ -2,12 +2,10 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Field, Form } from 'formik';
 import { NavLink } from 'react-router-dom';
-import { useHistory } from 'react-router';
 
 // Material UI
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
-import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 
 // Data
@@ -15,10 +13,10 @@ import messages from './login-form.messages';
 import { LoginFormProps } from './login-form.interfaces';
 
 // Components
-import FormikInput from '../../../../components/_forms/Formik/formik-input.component';
-import { PrimaryButton } from '../../../../components/_core/_ui/buttons.component';
-import { Spacer } from '../../../../components/_core/_ui/structure.components';
-import { FormHelperText, FormLabel } from '../../../../components/_core/_ui/forms.component';
+import FormikInput from '../../../_forms/Formik/formik-input.component';
+import { Spacer } from '../../../_core/_ui/structure.components';
+import { FormHelperText, FormLabel } from '../../../_core/_ui/forms.component';
+import { Button } from '../../../_core/_ui/buttons.component';
 
 const LoginForm: React.FC<LoginFormProps> = ({ form, submitError }) => {
   return (
@@ -33,9 +31,9 @@ const LoginForm: React.FC<LoginFormProps> = ({ form, submitError }) => {
         </Box>
       } />
       <FormControl margin="normal" fullWidth>
-        <PrimaryButton type="submit" variant="contained">
+        <Button color="primary" type="submit" variant="contained">
           <FormattedMessage {...messages.btnSubmit} />
-        </PrimaryButton>
+        </Button>
       </FormControl>
       {submitError && <FormHelperText error>{submitError}</FormHelperText>}
     </Form>

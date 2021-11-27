@@ -32,7 +32,7 @@ export const addTrackedQuery = (query: ITrackedQuery) => {
   localStorage.setItem(STORAGE_REF, JSON.stringify({ queries: nextTrackedQueries }));
 };
 
-export default () =>
+const createTrackerLink = () =>
   new ApolloLink((operation: Operation, forward) => {
     if (forward === undefined) {
       return null;
@@ -65,3 +65,5 @@ export default () =>
       return data;
     });
   });
+
+export default createTrackerLink;

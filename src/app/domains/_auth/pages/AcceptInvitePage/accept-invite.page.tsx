@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import qs from 'qs';
 import * as Yup from 'yup';
 import { useHistory, withRouter } from 'react-router-dom';
-import styled from 'styled-components';
+import { styled } from '@mui/material/styles';
 import dayjs from 'dayjs';
 
 // Material UI
@@ -13,16 +13,16 @@ import Box from '@mui/material/Box';
 // Data
 import { buildAcceptInvite, getInvite } from '../../../invite/invite.service';
 import { buildSignOut, getAuthUser } from '../../auth.service';
-import { INVITE_STATUSES } from '../../../../lib/constants';
+import { INVITE_STATUSES } from '../../../../lib/_constants';
 import { isValidEmail } from '../../../../lib/helpers/validation.helpers';
 import { COMPANY_TERM } from '../../../../../_configuration';
 
 // Components
-import { PrimaryButton } from '../../../../components/_core/_ui/buttons.component';
 import AcceptInviteForm, { SignUpFormValues } from '../../../invite/components/_AcceptInviteForm/accept-invite-form.component';
-import SingleFormLayout from '../../../../components/_pages/_layout/SingleFormLayout/single-form.layout';
+import SingleFormLayout from '../../../_pages/_layout/SingleFormLayout/single-form.layout';
+import { Button } from '../../../_core/_ui/buttons.component';
 
-const Msg = styled.div`
+const Msg = styled('div')`
   margin-top: 16px;
   text-align: center;
   color: rgba(0, 0, 0, 0.56);
@@ -82,7 +82,7 @@ const AcceptInvitePage: React.FC<IJoinPage> = ({ location }) => {
       <Box display="flex" flexDirection="column" alignItems="center">
         <Msg key="submitted">Successfully registered with {invite.companyName}. Sign in</Msg>
         <Box key="sign_in" mt={2}>
-          <PrimaryButton variant="contained" onClick={() => history.push('/')}>Sign In</PrimaryButton>
+          <Button color="primary" variant="contained" onClick={() => history.push('/')}>Sign In</Button>
         </Box>
       </Box>
     );
@@ -93,7 +93,7 @@ const AcceptInvitePage: React.FC<IJoinPage> = ({ location }) => {
       <Box display="flex" flexDirection="column" alignItems="center">
         <Msg key="accepted">Invite has already been accepted</Msg>
         <Box key="sign_in" mt={2}>
-          <PrimaryButton variant="contained" onClick={() => history.push('/')}>Sign In</PrimaryButton>
+          <Button color="primary" variant="contained" onClick={() => history.push('/')}>Sign In</Button>
         </Box>
       </Box>
     );

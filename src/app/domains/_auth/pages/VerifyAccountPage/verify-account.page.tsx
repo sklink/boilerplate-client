@@ -9,7 +9,7 @@ import AuthApiService from '../../../../lib/utils/auth-api.service';
 
 // Components
 import SetPasswordFormContainer from '../../components/SetPasswordForm/set-password-form.container';
-import SingleFormLayout from '../../../../components/_pages/_layout/SingleFormLayout/single-form.layout';
+import SingleFormLayout from '../../../_pages/_layout/SingleFormLayout/single-form.layout';
 import { ROUTE_PATHS } from '../../../../../_configuration';
 
 interface IVerifyAccountPage {

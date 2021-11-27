@@ -15,14 +15,14 @@ import ArchiveIcon from '@mui/icons-material/Archive';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 // Data
-import { SESSIONS_TERM } from '../../../../lib/constants';
+import theme from '../../../../lib/_theme';
 
 // Components
-import { EnhancedTable, IEnhancedTableRow } from '../../../../components/_core/_ui/table.components';
-import { FormInput } from '../../../../components/_core/_ui/forms.component';
-import { Spacer } from '../../../../components/_core/_ui/structure.components';
-import { PrimaryButton, SecondaryButton } from '../../../../components/_core/_ui/buttons.component';
+import { EnhancedTable, IEnhancedTableRow } from '../../../_core/_ui/table.components';
+import { FormInput } from '../../../_core/_ui/forms.component';
+import { Spacer } from '../../../_core/_ui/structure.components';
 import { ROLES } from '../../../../../_configuration';
+import { Button } from '../../../_core/_ui/buttons.component';
 
 dayjs.extend(relativeTime);
 
@@ -62,6 +62,7 @@ const MemberList: React.FC<IMemberList> = ({
   currMember
 }) => {
   const rows: IEnhancedTableRow[] = [];
+  const numRoles = Object.keys(ROLES).length;
 
   _.each(members, (member: IMember) => {
     const isCurrMember = currMember && member._id === currMember._id;
@@ -74,39 +75,15 @@ const MemberList: React.FC<IMemberList> = ({
         <TableCell key="name">{member.user.name}<br />{member.user.email}</TableCell>,
         <TableCell align="center" key="all">
           <Checkbox
-            checked={member.roles.length === 5}
+            checked={member.roles.length === numRoles}
             onClick={() => {
-              const roles =  member.roles.length === 5 ? [] : Object.keys(ROLES);
-              if (member.roles.length === 5 && currMember?._id === member._id) {
+              const roles =  member.roles.length === numRoles ? [] : Object.keys(ROLES);
+              if (member.roles.length === numRoles && currMember?._id === member._id) {
                 roles.push('USER_MANAGEMENT');
               }
 
               updateMemberRoles(member, roles);
             }}
-          />
-        </TableCell>,
-        <TableCell align="center" key="checkin">
-          <Checkbox
-            checked={_.includes(member.roles, 'CHECK_IN')}
-            onClick={() => toggleRole(member, 'CHECK_IN')}
-          />
-        </TableCell>,
-        <TableCell align="center" key="scoring">
-          <Checkbox
-            checked={_.includes(member.roles, 'SCORING')}
-            onClick={() => toggleRole(member, 'SCORING')}
-          />
-        </TableCell>,
-        <TableCell align="center" key="reports">
-          <Checkbox
-            checked={_.includes(member.roles, 'REPORTS')}
-            onClick={() => toggleRole(member, 'REPORTS')}
-          />
-        </TableCell>,
-        <TableCell align="center" key="configuration">
-          <Checkbox
-            checked={_.includes(member.roles, 'CONFIGURATION')}
-            onClick={() => toggleRole(member, 'CONFIGURATION')}
           />
         </TableCell>,
         <TableCell align="center" key="users">
@@ -123,16 +100,12 @@ const MemberList: React.FC<IMemberList> = ({
   const columns = [
     { key: 'name', label: 'Name', path: 'member.user.name' },
     { key: 'all', label: 'All Roles', disableSort: true },
-    { key: 'checkin', label: 'Check-In', disableSort: true, helper: 'Allows access to check-in players ' },
-    { key: 'evaluator', label: 'Scoring', disableSort: true, helper: `Allows access to evaluation tools and upcoming ${SESSIONS_TERM.toLowerCase()}` },
-    { key: 'reports', label: 'Reports', disableSort: true, helper: 'Allows access to summary reports, detailed player scores, and report cards' },
-    { key: 'config', label: 'Configuration', disableSort: true, helper: `Allows access to import and create ${SESSIONS_TERM.toLowerCase()}, players, skills, and assessment scheduling configuration` },
     { key: 'users', label: 'User Management', disableSort: true, helper: 'Allows access to invite and manage users' },
   ];
 
   return <>
     <EnhancedTable
-      numCols={7}
+      numCols={columns.length}
       rows={rows}
       columns={columns}
       defaultOrder="player.lastName"
@@ -165,13 +138,13 @@ const MemberList: React.FC<IMemberList> = ({
     {countArchivedMembers > 0 && !viewingArchived && (
       <Box display="flex">
         <Spacer />
-        <SecondaryButton startIcon={<ArchiveIcon />} onClick={() => setViewingArchived(true)}>View Archived Users</SecondaryButton>
+        <Button bg="white" startIcon={<ArchiveIcon />} onClick={() => setViewingArchived(true)}>View Archived Users</Button>
       </Box>
     )}
     {viewingArchived && (
       <Box display="flex">
         <Spacer />
-        <PrimaryButton startIcon={<ArrowBackIosIcon />} onClick={() => setViewingArchived(false)}>Back to Users</PrimaryButton>
+        <Button bg={theme.palette.primary.main} startIcon={<ArrowBackIosIcon />} onClick={() => setViewingArchived(false)}>Back to Users</Button>
       </Box>
     )}
   </>;

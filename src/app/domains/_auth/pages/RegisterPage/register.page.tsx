@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 // Components
-import SingleFormLayout from '../../../../components/_pages/_layout/SingleFormLayout/single-form.layout';
+import SingleFormLayout from '../../../_pages/_layout/SingleFormLayout/single-form.layout';
 import RegisterCompanyFormContainer from '../../../company/components/_RegisterCompanyForm/register-company-form.container';
 
 interface RegisterPageProps {

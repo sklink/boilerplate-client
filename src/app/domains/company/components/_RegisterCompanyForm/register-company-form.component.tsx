@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from '@mui/material/styles';
 import { Field, Form } from 'formik';
 
 // Material UI
@@ -9,20 +9,21 @@ import FormControl from '@mui/material/FormControl';
 import Checkbox from '@mui/material/Checkbox';
 
 // Data
-import { COMMON_MAIL_DOMAINS } from '../../../../lib/constants';
+import { COMMON_MAIL_DOMAINS } from '../../../../lib/_constants';
 import { isValidEmail } from '../../../../lib/helpers/validation.helpers';
 import messages from './register-company-form.messages';
 import { APP_TITLE, COMPANY_TERM } from '../../../../../_configuration';
 
 // Components
-import FormikInput from '../../../../components/_forms/Formik/formik-input.component';
-import { FormHelperText, FormLabel } from '../../../../components/_core/_ui/forms.component';
-import { PrimaryButton } from '../../../../components/_core/_ui/buttons.component';
-import IntlMsg from '../../../../components/_core/IntlMsg/intl-msg.component';
-import FormikSelect from '../../../../components/_forms/Formik/formik-select.component';
+import FormikInput from '../../../_forms/Formik/formik-input.component';
+import { FormHelperText, FormLabel } from '../../../_core/_ui/forms.component';
+import IntlMsg from '../../../_core/IntlMsg/intl-msg.component';
+import FormikSelect from '../../../_forms/Formik/formik-select.component';
 import { TIMEZONE_NAME_OPTIONS } from '../../../../lib/constants/timezone.constants';
+import Typography from '@mui/material/Typography';
+import { Button } from '../../../_core/_ui/buttons.component';
 
-const CompanyListing = styled.div`
+const CompanyListing = styled('div')`
   background: #fff;
   border-radius: 4px;
   border: 1px solid #ddd;
@@ -40,7 +41,7 @@ const CompanyListing = styled.div`
   }
 `;
 
-const VerificationMsg = styled.div`
+const VerificationMsg = styled('div')`
   margin-top: 16px;
   text-align: center;
   color: rgba(0, 0, 0, 0.56);
@@ -68,6 +69,8 @@ const RegisterCompanyForm: React.FC<IRegisterCompanyFormProps> = ({ form, currSt
     setTouched
   } = form;
 
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debounceSearchCompany = React.useCallback(_.debounce((value: string) => {
     const nextDomain = value.split('@').pop();
 
@@ -121,13 +124,13 @@ const RegisterCompanyForm: React.FC<IRegisterCompanyFormProps> = ({ form, currSt
         {!loadingCompany && !errors.email && touched.email && (!domain || (domain && _.isNull(company))) && (
           <CompanyListing>
             <div>Set up a new {COMPANY_TERM}</div>
-            <PrimaryButton onClick={() => onSetStep(2)}>Next</PrimaryButton>
+            <Button color="primary" onClick={() => onSetStep(2)}>Next</Button>
           </CompanyListing>
         )}
         {!loadingCompany && company && (
           <CompanyListing>
             <div>You&#8217;re requesting to join<br /><strong>{company.name}</strong></div>
-            <PrimaryButton onClick={() => onSetStep(2)}>Next</PrimaryButton>
+            <Button color="primary" onClick={() => onSetStep(2)}>Next</Button>
           </CompanyListing>
         )}
       </Box>
@@ -162,10 +165,10 @@ const RegisterCompanyForm: React.FC<IRegisterCompanyFormProps> = ({ form, currSt
         <Field fid="rcf" name="name" label={messages.lblName} component={FormikInput} />
 
         <FormControl margin="normal">
-          <PrimaryButton disabled={isSubmitting} type="submit">
+          <Button color="primary" disabled={isSubmitting} type="submit">
             {!isSubmitting && <IntlMsg {...(company ? messages.btnRequestAccess : messages.btnCreateAccount)} />}
             {isSubmitting && <IntlMsg {...messages.btnSubmitting} />}
-          </PrimaryButton>
+          </Button>
         </FormControl>
       </div>
     </Form>

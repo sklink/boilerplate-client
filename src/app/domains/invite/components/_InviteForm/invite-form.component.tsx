@@ -15,10 +15,10 @@ import messages from './invite-form.messages';
 import { ROLES } from '../../../../../_configuration';
 
 // Components
-import { PrimaryButton } from '../../../../components/_core/_ui/buttons.component';
-import { FormHelperText, FormInput } from '../../../../components/_core/_ui/forms.component';
-import IntlMsg from '../../../../components/_core/IntlMsg/intl-msg.component';
+import { FormHelperText, FormInput } from '../../../_core/_ui/forms.component';
+import IntlMsg from '../../../_core/IntlMsg/intl-msg.component';
 import { toggleListItem } from '../../../../lib/helpers/data-structure.helpers';
+import { Button } from '../../../_core/_ui/buttons.component';
 
 interface InviteFormProps {
   sendInvite: Function;
@@ -78,13 +78,13 @@ const InviteForm: React.FC<InviteFormProps> = ({
         ))}
       </Box>
       <Box mt={2} display="flex" flexDirection="row" alignItems="center">
-        <PrimaryButton disabled={roles.length === 0 || !isValidEmail(email)} onClick={() => {
+        <Button color="primary" disabled={roles.length === 0 || !isValidEmail(email)} onClick={() => {
           sendInvite(email, roles);
           setEmail('');
           setRoles([]);
         }} endIcon={<SendIcon />}>
           <IntlMsg {...messages.btnSendInvite} />
-        </PrimaryButton>
+        </Button>
         {submitError && <Box ml={2}><FormHelperText error>{submitError}</FormHelperText></Box>}
         {showSaved && <Box ml={2}><FormHelperText className="success">Invite sent</FormHelperText></Box>}
       </Box>

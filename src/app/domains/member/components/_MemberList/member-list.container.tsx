@@ -41,7 +41,6 @@ const MemberListContainer: React.FC<IMemberListContainer> = ({
   const [filteredMembers, setFilteredMembers] = useState(members);
   const fuse = new Fuse(members, { threshold: 0.3, keys: ['user.name', 'user.email'] });
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (searchTerm.length) {
       const results = fuse.search(searchTerm);
@@ -50,8 +49,10 @@ const MemberListContainer: React.FC<IMemberListContainer> = ({
     } else {
       setFilteredMembers(members);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [members, searchTerm]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debounceSearch = useCallback(_.debounce((nextSearch: string) => {
     setSearchTerm(nextSearch)
   }, 300), []);

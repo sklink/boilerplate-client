@@ -1,9 +1,10 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 
 import { APP_TITLE, buildPageTitle, HAS_USERS, OPEN_REGISTRATION, ROUTE_PATHS, ROUTE_ROLES } from './_configuration';
 
 // Components
-import RouteByRole from './app/components/_core/RouteByRole/route-by-role.component';
+import RouteByRole from './app/domains/_core/RouteByRole/route-by-role.component';
 import ManageUsersPage from './app/domains/user/pages/ManageUsersPage/manage-users.page';
 import LoginPage from './app/domains/_auth/pages/LoginPage/login.page';
 import ForgotPasswordPage from './app/domains/_auth/pages/ForgotPasswordPage/forgot-password.page';
@@ -12,13 +13,12 @@ import SettingsPage from './app/domains/_auth/pages/SettingsPage/settings.page';
 import AcceptInvitePage from './app/domains/_auth/pages/AcceptInvitePage/accept-invite.page';
 import RegisterPageContainer from './app/domains/_auth/pages/RegisterPage/register.page';
 import VerifyAccountPage from './app/domains/_auth/pages/VerifyAccountPage/verify-account.page';
-import { Route, Switch } from 'react-router-dom';
-import NotFoundPage from './app/components/_pages/_general/NotFoundPage/not-found-page.component';
-import DashboardPage from './app/components/_pages/DashboardPage/dashboard.page';
+import NotFoundPage from './app/domains/_pages/_general/NotFoundPage/not-found-page.component';
+import DashboardPage from './app/domains/_pages/DashboardPage/dashboard.page';
 
 // App Specific Routes
 // ====
-const ROUTES = [
+export const ROUTES = [
   <RouteByRole exact title={APP_TITLE} path={ROUTE_PATHS.HOME} componentsByRole={{
     [ROUTE_ROLES.AUTHORIZED]: DashboardPage,
   }} />,
@@ -53,5 +53,3 @@ if (HAS_USERS) {
 }
 
 ROUTES.push(<Route title={buildPageTitle('Page Not Found')} component={NotFoundPage} />);
-
-export default { ROUTES };

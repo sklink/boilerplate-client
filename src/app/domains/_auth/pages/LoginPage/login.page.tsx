@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import qs from 'qs';
 
 // Components
-import SingleFormLayout from '../../../../components/_pages/_layout/SingleFormLayout/single-form.layout';
+import SingleFormLayout from '../../../_pages/_layout/SingleFormLayout/single-form.layout';
 import LoginFormContainer from '../../components/LoginForm/login-form.container';
 
 interface LoginPageProps {

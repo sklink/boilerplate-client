@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { ApolloClient, from } from '@apollo/client';
+import { ApolloClient, from, split } from '@apollo/client';
 import { createHttpLink } from '@apollo/client/link/http';
 import { setContext } from '@apollo/client/link/context';
 import { InMemoryCache } from '@apollo/client/cache';
@@ -8,8 +8,19 @@ import { onError } from '@apollo/client/link/error';
 import SerializingLink from 'apollo-link-serialize';
 import QueueLink from 'apollo-link-queue';
 import { persistCache } from 'apollo3-cache-persist';
+import { WebSocketLink } from '@apollo/client/link/ws';
+import { getMainDefinition } from '@apollo/client/utilities';
 
-import { GRAPHQL_HTTP_URI } from './constants';
+// Data
+import {
+  ENABLE_OFFLINE_GQL,
+  ENABLE_WEBSOCKETS,
+  PERSIST_CACHE,
+  TOKEN_REFRESH_INTERVAL
+} from '../../_configuration';
+import { GRAPHQL_HTTP_URI, GRAPHQL_WS_URI } from './_constants';
+
+// Services
 import { authUser } from '../domains/_auth/auth.service';
 import AuthApiService from './utils/auth-api.service';
 import trackerLink from './utils/tracker.link';
@@ -21,7 +32,7 @@ setInterval(() => {
     .then(result => {
       authUser(_.get(result, 'user'));
     })
-}, 15 * 60 * 1000);
+}, TOKEN_REFRESH_INTERVAL);
 
 async function createApolloClient(currUser: any) {
   if (currUser) {
@@ -41,6 +52,19 @@ async function createApolloClient(currUser: any) {
     uri: GRAPHQL_HTTP_URI,
   });
 
+  let wsLink: WebSocketLink | undefined;
+  if (ENABLE_WEBSOCKETS) {
+    wsLink = new WebSocketLink({
+      uri: GRAPHQL_WS_URI,
+      options: {
+        reconnect: true,
+        connectionParams: () => ({
+          token: _.get(authUser(), 'token'),
+        }),
+      }
+    });
+  }
+
   // Authentication
   const authLink = setContext((ctx, { headers }) => {
     const nextToken = _.get(authUser(), 'token');
@@ -56,17 +80,37 @@ async function createApolloClient(currUser: any) {
 
   const currStorage: any = localStorage;
   const cache = new InMemoryCache();
-  await persistCache({ cache, storage: currStorage });
 
-  const link = from([
-    errorLink,
-    trackerLink(),
-    queueLink,
-    serializingLink,
-    retryLink,
-    authLink.concat(httpLink)
-  ]);
+  if (PERSIST_CACHE) {
+    await persistCache({ cache, storage: currStorage });
+  }
 
+  const links = [errorLink];
+  if (ENABLE_OFFLINE_GQL) {
+    links.push(trackerLink());
+  }
+
+  // Handle intermittent network connection drops
+  links.push(queueLink);
+  links.push(serializingLink);
+  links.push(retryLink);
+
+  const requestLink = wsLink
+    ? split(
+      ({ query }) => {
+        const definition = getMainDefinition(query);
+        return (
+          definition.kind === 'OperationDefinition' &&
+          definition.operation === 'subscription'
+        );
+      },
+      wsLink,
+      httpLink,
+    )
+    : authLink.concat(httpLink);
+  links.push(requestLink);
+
+  const link = from(links);
   const client = new ApolloClient({ cache, link, resolvers: {} });
 
   if (!currUser) {
@@ -78,6 +122,6 @@ async function createApolloClient(currUser: any) {
   }
 
   return { client, queueLink };
-};
+}
 
 export default createApolloClient;

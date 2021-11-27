@@ -11,10 +11,10 @@ import messages from './forgot-password-form.messages';
 import { ForgotPasswordFormProps } from './forgot-password-form.interface';
 
 // Components
-import { PrimaryButton } from '../../../../components/_core/_ui/buttons.component';
-import IntlMsg from '../../../../components/_core/IntlMsg/intl-msg.component';
-import FormikInput from '../../../../components/_forms/Formik/formik-input.component';
-import { FormHelperText } from '../../../../components/_core/_ui/forms.component';
+import IntlMsg from '../../../_core/IntlMsg/intl-msg.component';
+import FormikInput from '../../../_forms/Formik/formik-input.component';
+import { FormHelperText } from '../../../_core/_ui/forms.component';
+import { Button } from '../../../_core/_ui/buttons.component';
 
 
 const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({ form, isSubmitted, submitError }) => {
@@ -35,12 +35,12 @@ const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({ form, isSubmitt
 
       <FormControl margin="dense">
         <Box display="flex" flexDirection="row">
-          <PrimaryButton disabled={isSubmitting || !isValid} type="submit">
+          <Button color="primary" disabled={isSubmitting || !isValid} type="submit">
             {isSubmitting
               ? <IntlMsg {...messages.btnSubmitting} />
               : <span><IntlMsg {...messages.btnSubmit} /></span>
             }
-          </PrimaryButton>
+          </Button>
         </Box>
       </FormControl>
 

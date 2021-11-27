@@ -1,4 +1,4 @@
-import { IFormOption } from '../../../../components/_core/_ui/forms.component';
+import { IFormOption } from '../../../_core/_ui/forms.component';
 
 export interface IRegisterCompanyFields {
   email: string;
