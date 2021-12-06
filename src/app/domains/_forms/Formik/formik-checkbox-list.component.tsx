@@ -40,6 +40,7 @@ const FormikCheckboxList: React.FC<IFormikCheckboxList> = ({
 
   const _id = id || `${fid}_${field.name}`;
   const error = _.get(form, `errors.${field.name}`);
+  const touched = _.get(form, `touched.${field.name}`);
 
   let eleLabel = label;
   if (label && label.id) {
@@ -56,7 +57,7 @@ const FormikCheckboxList: React.FC<IFormikCheckboxList> = ({
         <FormLabel htmlFor="co_toggleAll">Toggle All</FormLabel>
         <Checkbox
           id="co_toggleAll"
-          defaultChecked
+          checked={values && _.keys(_.get(values, field.name)).length === options.length}
           onChange={e => {
             if (e.currentTarget.checked) {
               setFieldValue(field.name, _.keyBy(options, option => option.value))
@@ -72,7 +73,17 @@ const FormikCheckboxList: React.FC<IFormikCheckboxList> = ({
             <FormLabel grow left htmlFor={`option__${option._id}`}>{option.label}</FormLabel>
             <Checkbox
               id={`option__${option.value}`}
-              onChange={e => setFieldValue(`${field.name}.${option.value}`, e.currentTarget.checked)}
+              onChange={e => {
+                const nextValues = { ..._.get(values, field.name, {}) };
+
+                if (e.currentTarget.checked) {
+                  nextValues[option.value] = true;
+                } else {
+                  delete nextValues[option.value];
+                }
+
+                setFieldValue(field.name, nextValues)
+              }}
               checked={Boolean(_.get(values, `${field.name}.${option.value}`))}
             />
           </CheckboxListItem>
@@ -80,7 +91,7 @@ const FormikCheckboxList: React.FC<IFormikCheckboxList> = ({
         {loading && <CheckboxListItem><FormLabel grow left>Loading...</FormLabel></CheckboxListItem>}
         {hasNoOptionsMsg && !loading && options && !options.length && <CheckboxListItem><FormLabel grow left>{hasNoOptionsMsg}</FormLabel></CheckboxListItem>}
       </CheckboxList>
-      {error && <FormHelperText error>{error}</FormHelperText>}
+      {_.isString(error) && touched && <FormHelperText error>{error}</FormHelperText>}
     </div>
   );
 };
